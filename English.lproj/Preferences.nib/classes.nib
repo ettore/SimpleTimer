@@ -1,0 +1,30 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {addEmptyEntry = id; deleteEntry = id; }; 
+            CLASS = CLTableViewController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {deleteButton = NSButton; tableView = NSTableView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = CLTableViewUserDefaultsController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = CLTableViewController; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {changeAlwaysRemove = id; changeSaveRadioBtnScope = id; }; 
+            CLASS = PreferenceController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                alwaysRemoveBtn = NSButton; 
+                msgPresetsController = CLTableViewUserDefaultsController; 
+                saveRadioBtnScope = NSMatrix; 
+                urlPresetsController = CLTableViewUserDefaultsController; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

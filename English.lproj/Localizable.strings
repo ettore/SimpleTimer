@@ -1,0 +1,110 @@
+/* My Usual reminders */
+"msg1" = "Pick up laundry";
+"msg2" = "Wash dishes";
+"msg3" = "Wipe crumbs from table";
+"msg4" = "Vacuum";
+"msg5" = "Do some physical exercises";
+"msg6" = "Water the plants";
+"msg7" = "Meditate";
+"msg8" = "Practice Tai Chi";
+
+/* My Usual URLs */
+"url1" = "http://localhost";
+"url2" = "http://gnu.org";
+"url3" = "http://cubelogic.org";
+"url4" = "http://sourceforge.net";
+"url5" = "http://www.independent.co.uk";
+"url6" = "http://commondreams.org";
+"url7" = "http://mediamatters.org";
+"url8" = "http://www.antanisoftbbs.org/forum/";
+                                                 
+/* Default sound directory. The files from this directory will be 
+listed in the sound menu. */
+"CLDefaultSoundDirKey" = "/System/Library/Sounds";
+
+/* General strings used all around the app */
+"Yes" = "Yes";
+"No" = "No";
+"Time" = "time";
+"Times" = "times";
+"SecAbbr" = "sec";
+"MinAbbr" = "min";
+"hour" = "hour";
+"hours" = "hours";
+"minute" = "minute";
+"minutes" = "minutes";
+"second" = "second";
+"seconds" = "seconds";
+"and" = " and ";
+"Cancel" = "Cancel";
+"NotStarted" = "Not started";
+"DefaultReminder" = "Timer Alert!";
+"WillEnd" = "Will end ";
+"Stopped" = "Stopped";
+
+/* "Repeat" column on the Summary view, eg: "3 times, every 10:44:55" */
+"SummaryRepeat" = "%d %@, every %d:%d:%d";
+/* Strings for the "Actions" column on the Summary view */
+"OpenAlertBox"  = "Open alert box; ";
+"Open" = "Open";
+/* Summary view "Actions" column, eg: "Play [soundfile] [3] [times] */
+"SummaryPlaySnd" = "Play %@ %d %@;";
+/* The "New document" default name */
+"UntitledDoc" = "Untitled";
+
+/* Donation alert strings */
+"DonationAlertTitle" = "Thank you for considering a donation!";
+"DonationAlertMsg" = "Now you will be redirected to the PayPal website. Please be patient, some time is needed to load the PayPal page. Login into your PayPal account, use <e@cubelogic.org> as \"Recipient's Email\" (if not already filled in), and send an amount of your choice, in a currency of your choice!\n\nIf you don't have a PayPal account, please consider signing up: it's free.\nIf you have any questions or concerns regarding your donation, please feel free to contact Cubelogic at <support@cubelogic.org>.\nThanks for your support!";
+"GotoPayPal" = "Go to PayPal";
+"AnotherTime" = "Another time";
+
+/* Date Formats (US: Dec 25, 2004 at 11:44:44 PM) */
+"SamedayDateFormat"  = "at %I:%M:%S %p";
+"SameyearDateFormat" = "%b %e at %I:%M:%S %p";
+"FullDateFormat"     = "%b %e, %Y at %I:%M:%S %p";
+
+/* Dock menu stuff */
+"DockStoppedWouldHaveMsg" = "STOPPED - Would have ended ";
+"DockStoppedMsg" = "STOPPED";
+
+/* Ended timer msgs */
+
+/* eg: "All rep. ended Dec 25, 2004 11:12:34" */
+"AllEnded" = "All repetitions ended %@";
+/* eg: "Ended Dec 25, 2004 11:12:34" */
+"Ended" = "Ended %@";
+/* eg: "Warning: timer alert in 5 hours, 1 minute, and 1 second" */
+"WarningMsg" = "Warning: %@\nin %d %@, %d %@, and %d %@.";
+/* eg: "Another reminder will appear Dec 25, 2004 11:12:34" */
+"AnotherReminder" = "Another reminder will appear %@.";
+/* eg: "Reminder: timer alert!" */
+"ReminderTitle" = "Reminder: %@";
+/* eg: "This timer expired Dec 25, 2004, 12:23:23" */
+"ThisTimerExpired" = "This timer expired %@.";
+"FinalReminder" = "%@ This is the final reminder.";
+"OneMoreRepetition" = "%@ There is 1 more repetition to go.";
+/* eg: "[...]. There are 5 more repetitions to go." */
+"XMoreRepetitions" = "%@ There are %d more repetitions to go.";
+/* eg: "[...]. Next repetition (#2) will end Dec 25, 2004, 12:23:23" */
+"NextRepStatusInfo" = "Next repetition (#%d) will end %@";
+
+/* Quitting custom message: this message is constructed in the code
+depending on how many unsaved and active timers we have. */
+"YouHave" = "You have";
+"IfYouQuit" = "If you quit, ";
+"UnsavedChangesTitle1" = "%@%d timer with unsaved changes%@";
+"UnsavedChangesTitle" = "%@%d timers with unsaved changes%@";
+"ChangesWillBeLost" = "%@all your unsaved changes will be lost%@";
+"OneTimerStillActive" = "%@%d timer still active";
+"TimersStillActive" = "%@%d timers still active";
+"AllTimersWillBeRemoved" = "%@all your active timers will be stopped and removed";
+"DoYouWannaReviewIt" = "%@. Do you want to review it before quitting?";
+"DoYouWannaReviewThem" = "%@. Do you want to review them before quitting?";
+"Review" = "Review";
+"QuitAnyway" = "Quit Anyway";
+
+/* Individual timer UI */
+"MyUsualURLs" = "My usual URLs";
+"MyUsualDuties" = "My usual duties";
+"ChooseSound" = "Choose Sound...";
+"IdleTimerStatusInfo" = "Idle";

@@ -1,0 +1,52 @@
+SimpleTimer history of changes
+------------------------------
+
+Version 1.2, January 2006
+- Universal binary build.
+- Removed redundant warning functionalities.
+- Cleaned up the main UI (a little bit).
+
+Version 1.1.0b1, January, 2005
+- Moved all localizable texts into separate strings file.
+- Streamlined the termination procedure (code cleanup).
+- Implemented a possible solution for undismissable alert box problem: currently unable to replicate bug after the fix.
+- Implemented double click on summary view.
+- Bug fix on warning timer firing sequence.
+- Other minor bug fixes.
+
+Version 1.0.1, 26th of December, 2004
+- Minor UI changes.
+- Jaguar build.
+
+Version 1.0, 21st of December, 2004
+- This is the 1st official release.
+- Major UI Improvements: each timer window is now divided in sections outlining scheduling, reminder name, actions, and activation capabilities.
+- Summary window with full timer live information.
+- Dock quick view (Control-click on the dock icon).
+- Final file format.
+- Ability to automatically remove timers with Preferences option.
+- Added online help.
+
+Version 0.4, 30th of November, 2004
+- Added sound option.
+- Added warning option.
+- It is now possible to save URLs and messages directly in the timer window using the additional "Save" buttons. The buttons can also optionally update the user preferences as well as the individual timer.
+- Changed file format (and will continue to change until version 1.0).
+- Changed document extension: now using `.timer' instead of `.ti'.
+- Other UI improvements.
+
+Version 0.3, July, 2003
+- New features: start timer from a generic date, autostart, user preferences, summary page of all timers.
+- Redesign of the UI.
+- New files are not compatible with the one created with v0.2. Old files are not readable.
+- New icon due to license problems. (Icon will probably change again in the future.)
+- Bug fixes: fixed the bug that made the app crash when dragging the timer icon from a timer window to the dock; fixed a couple of memory leaks.
+
+Version 0.2, 12th of June, 2003
+- New features: open URL, open Alert box, message presets, URL presets.
+- Icon selection and editing. (the icon might be changed due to image copyrights and use of a non-free editing software.)
+- Redesign of the UI.
+- Bugfixes: pulsating button overhead.
+
+Version 0.1, 6th of June, 2003
+- Initial prototype: Basic timer functionalities, load and save, interface design.

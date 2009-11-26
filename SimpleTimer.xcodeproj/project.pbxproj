@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E511DECD077FE0E100BA614C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		E511DED3077FE0E100BA614C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E586C539074FFCFB00C10F62 /* Localizable.strings */; };
+		E511DED4077FE0E100BA614C /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = E586C53B074FFCFB00C10F62 /* MainMenu.nib */; };
+		E511DED5077FE0E100BA614C /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = E586C53F074FFCFB00C10F62 /* Preferences.nib */; };
+		E511DED6077FE0E100BA614C /* MyDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5995C0A0755FD51006631F2 /* MyDocument.nib */; };
+		E511DEE3077FE0E100BA614C /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = E5A0AC9307701A0300DA3DC7 /* Credits.html */; };
+		E511DEE4077FE0E100BA614C /* HelpOnline in Resources */ = {isa = PBXBuildFile; fileRef = E50A78BC077652690058392F /* HelpOnline */; };
+		E511DEE6077FE0E100BA614C /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = E586C4D5074FFBA600C10F62 /* AppController.m */; };
+		E511DEE7077FE0E100BA614C /* CLSimpleTimerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E586C4E2074FFBBB00C10F62 /* CLSimpleTimerModel.m */; };
+		E511DEE8077FE0E100BA614C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E586C509074FFBE200C10F62 /* main.m */; };
+		E511DEE9077FE0E100BA614C /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = E586C50B074FFBE300C10F62 /* MyDocument.m */; };
+		E511DEEA077FE0E100BA614C /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = E586C50D074FFBE300C10F62 /* PreferenceController.m */; };
+		E511DEEB077FE0E100BA614C /* CLTimerSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BC3D070761D60D008926FE /* CLTimerSummary.m */; };
+		E511DEEC077FE0E100BA614C /* CLTimerSummaryTvController.m in Sources */ = {isa = PBXBuildFile; fileRef = E540817707643E6600E06702 /* CLTimerSummaryTvController.m */; };
+		E511DEF4077FE0E100BA614C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		E593FB0810BD12CA0015ACEB /* CLCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0010BD12CA0015ACEB /* CLCommonConst.m */; };
+		E593FB0910BD12CA0015ACEB /* CLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0310BD12CA0015ACEB /* CLTableViewController.m */; };
+		E593FB0A10BD12CA0015ACEB /* CLTableViewRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0510BD12CA0015ACEB /* CLTableViewRecord.m */; };
+		E593FB0B10BD12CA0015ACEB /* CLTableViewUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0710BD12CA0015ACEB /* CLTableViewUserDefaultsController.m */; };
+		E593FB4B10BD134E0015ACEB /* CLFileManagerCateg.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB3E10BD134E0015ACEB /* CLFileManagerCateg.m */; };
+		E593FB4D10BD134E0015ACEB /* CLTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB4210BD134E0015ACEB /* CLTimer.m */; };
+		E593FB4E10BD134E0015ACEB /* CLURLCateg.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB4410BD134E0015ACEB /* CLURLCateg.m */; };
+		E593FB6310BD13A50015ACEB /* cl_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = E593FB6110BD13A50015ACEB /* cl_debug.c */; };
+		E5FF4D170782C20F00390E9E /* CLCommonLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FF4D140782C20F00390E9E /* CLCommonLocalizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF750370BD2300C91783 /* SimpleTimer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTimer_Prefix.pch; sourceTree = "<group>"; };
+		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E50A78BD077652690058392F /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/HelpOnline; sourceTree = "<group>"; };
+		E511DEF5077FE0E100BA614C /* SimpleTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E540817607643E6600E06702 /* CLTimerSummaryTvController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTimerSummaryTvController.h; sourceTree = "<group>"; };
+		E540817707643E6600E06702 /* CLTimerSummaryTvController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTimerSummaryTvController.m; sourceTree = "<group>"; };
+		E586C4D4074FFBA600C10F62 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		E586C4D5074FFBA600C10F62 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; usesTabs = 0; };
+		E586C4E1074FFBBB00C10F62 /* CLSimpleTimerModel.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CLSimpleTimerModel.h; sourceTree = "<group>"; };
+		E586C4E2074FFBBB00C10F62 /* CLSimpleTimerModel.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = CLSimpleTimerModel.m; sourceTree = "<group>"; };
+		E586C504074FFBD200C10F62 /* CLSimpleTimerGlobals.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CLSimpleTimerGlobals.h; sourceTree = "<group>"; };
+		E586C509074FFBE200C10F62 /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E586C50A074FFBE300C10F62 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
+		E586C50B074FFBE300C10F62 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
+		E586C50C074FFBE300C10F62 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		E586C50D074FFBE300C10F62 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		E586C53A074FFCFB00C10F62 /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E586C53C074FFCFB00C10F62 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		E586C540074FFCFB00C10F62 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
+		E593FAB410BD0E390015ACEB /* COPYING.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.txt; sourceTree = "<group>"; };
+		E593FAB510BD0E390015ACEB /* SimpleTimer-change-log.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SimpleTimer-change-log.txt"; sourceTree = "<group>"; };
+		E593FAB610BD0E390015ACEB /* SimpleTimer-README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SimpleTimer-README.txt"; sourceTree = "<group>"; };
+		E593FAFF10BD12CA0015ACEB /* CLCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLCommonConst.h; path = ../../clutils/CLCocoa/CLCommonConst.h; sourceTree = SOURCE_ROOT; };
+		E593FB0010BD12CA0015ACEB /* CLCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLCommonConst.m; path = ../../clutils/CLCocoa/CLCommonConst.m; sourceTree = SOURCE_ROOT; };
+		E593FB0110BD12CA0015ACEB /* CLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLController.h; path = ../../clutils/CLCocoa/CLController.h; sourceTree = SOURCE_ROOT; };
+		E593FB0210BD12CA0015ACEB /* CLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTableViewController.h; path = ../../clutils/CLCocoa/CLTableViewController.h; sourceTree = SOURCE_ROOT; };
+		E593FB0310BD12CA0015ACEB /* CLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTableViewController.m; path = ../../clutils/CLCocoa/CLTableViewController.m; sourceTree = SOURCE_ROOT; };
+		E593FB0410BD12CA0015ACEB /* CLTableViewRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTableViewRecord.h; path = ../../clutils/CLCocoa/CLTableViewRecord.h; sourceTree = SOURCE_ROOT; };
+		E593FB0510BD12CA0015ACEB /* CLTableViewRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTableViewRecord.m; path = ../../clutils/CLCocoa/CLTableViewRecord.m; sourceTree = SOURCE_ROOT; };
+		E593FB0610BD12CA0015ACEB /* CLTableViewUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTableViewUserDefaultsController.h; path = ../../clutils/CLCocoa/CLTableViewUserDefaultsController.h; sourceTree = SOURCE_ROOT; };
+		E593FB0710BD12CA0015ACEB /* CLTableViewUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTableViewUserDefaultsController.m; path = ../../clutils/CLCocoa/CLTableViewUserDefaultsController.m; sourceTree = SOURCE_ROOT; };
+		E593FB3910BD134E0015ACEB /* cl_gen_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cl_gen_utils.h; path = ../../clutils/CLFoundation/cl_gen_utils.h; sourceTree = SOURCE_ROOT; };
+		E593FB3A10BD134E0015ACEB /* cl_gen_utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cl_gen_utils.m; path = ../../clutils/CLFoundation/cl_gen_utils.m; sourceTree = SOURCE_ROOT; };
+		E593FB3D10BD134E0015ACEB /* CLFileManagerCateg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLFileManagerCateg.h; path = ../../clutils/CLFoundation/CLFileManagerCateg.h; sourceTree = SOURCE_ROOT; };
+		E593FB3E10BD134E0015ACEB /* CLFileManagerCateg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLFileManagerCateg.m; path = ../../clutils/CLFoundation/CLFileManagerCateg.m; sourceTree = SOURCE_ROOT; };
+		E593FB3F10BD134E0015ACEB /* CLFoundationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLFoundationUtils.h; path = ../../clutils/CLFoundation/CLFoundationUtils.h; sourceTree = SOURCE_ROOT; };
+		E593FB4010BD134E0015ACEB /* CLFoundationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLFoundationUtils.m; path = ../../clutils/CLFoundation/CLFoundationUtils.m; sourceTree = SOURCE_ROOT; };
+		E593FB4110BD134E0015ACEB /* CLTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTimer.h; path = ../../clutils/CLFoundation/CLTimer.h; sourceTree = SOURCE_ROOT; };
+		E593FB4210BD134E0015ACEB /* CLTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTimer.m; path = ../../clutils/CLFoundation/CLTimer.m; sourceTree = SOURCE_ROOT; };
+		E593FB4310BD134E0015ACEB /* CLURLCateg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLURLCateg.h; path = ../../clutils/CLFoundation/CLURLCateg.h; sourceTree = SOURCE_ROOT; };
+		E593FB4410BD134E0015ACEB /* CLURLCateg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLURLCateg.m; path = ../../clutils/CLFoundation/CLURLCateg.m; sourceTree = SOURCE_ROOT; };
+		E593FB6110BD13A50015ACEB /* cl_debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cl_debug.c; sourceTree = "<group>"; };
+		E593FB6210BD13A50015ACEB /* cl_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cl_debug.h; sourceTree = "<group>"; };
+		E5995C0B0755FD51006631F2 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		E5A0AC9407701A0300DA3DC7 /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
+		E5BC3D060761D60D008926FE /* CLTimerSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTimerSummary.h; sourceTree = "<group>"; };
+		E5BC3D070761D60D008926FE /* CLTimerSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTimerSummary.m; sourceTree = "<group>"; };
+		E5FF4D150782C20F00390E9E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/CLCommonLocalizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E511DEF3077FE0E100BA614C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E511DEF4077FE0E100BA614C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E511DEF5077FE0E100BA614C /* SimpleTimer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* SimpleTimer */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF750370BD2300C91783 /* SimpleTimer_Prefix.pch */,
+				E586C509074FFBE200C10F62 /* main.m */,
+				E5BC3D060761D60D008926FE /* CLTimerSummary.h */,
+				E5BC3D070761D60D008926FE /* CLTimerSummary.m */,
+				E586C4E1074FFBBB00C10F62 /* CLSimpleTimerModel.h */,
+				E586C4E2074FFBBB00C10F62 /* CLSimpleTimerModel.m */,
+				E586C4D4074FFBA600C10F62 /* AppController.h */,
+				E586C4D5074FFBA600C10F62 /* AppController.m */,
+				E586C50A074FFBE300C10F62 /* MyDocument.h */,
+				E586C50B074FFBE300C10F62 /* MyDocument.m */,
+				E586C50C074FFBE300C10F62 /* PreferenceController.h */,
+				E586C50D074FFBE300C10F62 /* PreferenceController.m */,
+				E540817607643E6600E06702 /* CLTimerSummaryTvController.h */,
+				E540817707643E6600E06702 /* CLTimerSummaryTvController.m */,
+				E586C504074FFBD200C10F62 /* CLSimpleTimerGlobals.h */,
+				E593FAF510BD12630015ACEB /* clutils */,
+				E50FD5B60753108000C3EE23 /* GUI */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				E593FAAE10BD0E210015ACEB /* External Docs */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = SimpleTimer;
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5FF4D140782C20F00390E9E /* CLCommonLocalizable.strings */,
+				E586C539074FFCFB00C10F62 /* Localizable.strings */,
+				E50A78BC077652690058392F /* HelpOnline */,
+				E5A0AC9307701A0300DA3DC7 /* Credits.html */,
+				8D15AC360486D014006FF6A4 /* Info.plist */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E50FD5B60753108000C3EE23 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				E586C53B074FFCFB00C10F62 /* MainMenu.nib */,
+				E586C53F074FFCFB00C10F62 /* Preferences.nib */,
+				E5995C0A0755FD51006631F2 /* MyDocument.nib */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		E593FAAE10BD0E210015ACEB /* External Docs */ = {
+			isa = PBXGroup;
+			children = (
+				E593FAB410BD0E390015ACEB /* COPYING.txt */,
+				E593FAB510BD0E390015ACEB /* SimpleTimer-change-log.txt */,
+				E593FAB610BD0E390015ACEB /* SimpleTimer-README.txt */,
+			);
+			name = "External Docs";
+			sourceTree = "<group>";
+		};
+		E593FAF510BD12630015ACEB /* clutils */ = {
+			isa = PBXGroup;
+			children = (
+				E593FB6010BD13A50015ACEB /* cl_debug */,
+				E593FB2810BD13430015ACEB /* CLFoundation */,
+				E593FB0C10BD12D50015ACEB /* CLCocoa */,
+			);
+			name = clutils;
+			sourceTree = "<group>";
+		};
+		E593FB0C10BD12D50015ACEB /* CLCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				E593FAFF10BD12CA0015ACEB /* CLCommonConst.h */,
+				E593FB0010BD12CA0015ACEB /* CLCommonConst.m */,
+				E593FB0110BD12CA0015ACEB /* CLController.h */,
+				E593FB0210BD12CA0015ACEB /* CLTableViewController.h */,
+				E593FB0310BD12CA0015ACEB /* CLTableViewController.m */,
+				E593FB0410BD12CA0015ACEB /* CLTableViewRecord.h */,
+				E593FB0510BD12CA0015ACEB /* CLTableViewRecord.m */,
+				E593FB0610BD12CA0015ACEB /* CLTableViewUserDefaultsController.h */,
+				E593FB0710BD12CA0015ACEB /* CLTableViewUserDefaultsController.m */,
+			);
+			name = CLCocoa;
+			sourceTree = "<group>";
+		};
+		E593FB2810BD13430015ACEB /* CLFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				E593FB3910BD134E0015ACEB /* cl_gen_utils.h */,
+				E593FB3A10BD134E0015ACEB /* cl_gen_utils.m */,
+				E593FB3D10BD134E0015ACEB /* CLFileManagerCateg.h */,
+				E593FB3E10BD134E0015ACEB /* CLFileManagerCateg.m */,
+				E593FB3F10BD134E0015ACEB /* CLFoundationUtils.h */,
+				E593FB4010BD134E0015ACEB /* CLFoundationUtils.m */,
+				E593FB4110BD134E0015ACEB /* CLTimer.h */,
+				E593FB4210BD134E0015ACEB /* CLTimer.m */,
+				E593FB4310BD134E0015ACEB /* CLURLCateg.h */,
+				E593FB4410BD134E0015ACEB /* CLURLCateg.m */,
+			);
+			name = CLFoundation;
+			sourceTree = "<group>";
+		};
+		E593FB6010BD13A50015ACEB /* cl_debug */ = {
+			isa = PBXGroup;
+			children = (
+				E593FB6110BD13A50015ACEB /* cl_debug.c */,
+				E593FB6210BD13A50015ACEB /* cl_debug.h */,
+			);
+			name = cl_debug;
+			path = ../../clutils/cl_debug;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E511DECB077FE0E100BA614C /* Jag SimpleTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7435E2008F7AC010023756A /* Build configuration list for PBXNativeTarget "Jag SimpleTimer" */;
+			buildPhases = (
+				A7435E3D08F7AD380023756A /* ShellScript */,
+				E511DECC077FE0E100BA614C /* Resources */,
+				E511DEE5077FE0E100BA614C /* Sources */,
+				E511DEF3077FE0E100BA614C /* Frameworks */,
+				A7D89B83097397E200A7F979 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Jag SimpleTimer";
+			productInstallPath = "$(HOME)/Applications";
+			productName = SimpleTimer;
+			productReference = E511DEF5077FE0E100BA614C /* SimpleTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A7435E2808F7AC010023756A /* Build configuration list for PBXProject "SimpleTimer" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* SimpleTimer */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E511DECB077FE0E100BA614C /* Jag SimpleTimer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E511DECC077FE0E100BA614C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5FF4D170782C20F00390E9E /* CLCommonLocalizable.strings in Resources */,
+				E511DECD077FE0E100BA614C /* InfoPlist.strings in Resources */,
+				E511DED3077FE0E100BA614C /* Localizable.strings in Resources */,
+				E511DEE4077FE0E100BA614C /* HelpOnline in Resources */,
+				E511DED4077FE0E100BA614C /* MainMenu.nib in Resources */,
+				E511DED5077FE0E100BA614C /* Preferences.nib in Resources */,
+				E511DED6077FE0E100BA614C /* MyDocument.nib in Resources */,
+				E511DEE3077FE0E100BA614C /* Credits.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A7435E3D08F7AD380023756A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "MY_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}-v${CURRENT_PROJECT_VERSION}\n\nif [ -d \"$MY_DIR\" ]; then\n\techo \"directory ${MY_DIR}/* exists, wiping before building\"\n\trm -rf \"${MY_DIR}\"/*\n\t#ls -la ${MY_DIR}\n\t#rm -Rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\"\nelse\n\techo \"creating directory $MY_DIR\"\n\tmkdir \"$MY_DIR\"\nfi\n";
+		};
+		A7D89B83097397E200A7F979 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "DMG_NAME=${PRODUCT_NAME}-v${CURRENT_PROJECT_VERSION}\nMY_DIR=${BUILT_PRODUCTS_DIR}/$DMG_NAME\n\n# copy app into MY_DIR\necho Copying build into $MY_DIR\ncp -R \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\" \"$MY_DIR\"\n\n# copy release text files\necho Adding release docs to $MY_DIR\ncp \"${SRCROOT}/SimpleTimer-change-log.txt\" \"$MY_DIR\"\ncp \"${SRCROOT}/SimpleTimer-README.txt\" \"$MY_DIR\"\ncp \"${SRCROOT}/COPYING.txt\" \"$MY_DIR\"\n\n# create dmg\nif [ \"${BUILD_STYLE}\" = \"Release\" ]; then\n\tcd \"$BUILT_PRODUCTS_DIR\"\n\trm -rf \"${DMG_NAME}.dmg\"\n\techo Creating DMG...\n\techo hdiutil create -fs HFS+ -volname \"$DMG_NAME\" -srcfolder \"$DMG_NAME\" \"${DMG_NAME}.dmg\"\n\thdiutil create -fs HFS+ -volname \"$DMG_NAME\" -srcfolder \"$DMG_NAME\" \"${DMG_NAME}.dmg\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E511DEE5077FE0E100BA614C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E511DEE6077FE0E100BA614C /* AppController.m in Sources */,
+				E511DEE7077FE0E100BA614C /* CLSimpleTimerModel.m in Sources */,
+				E511DEE8077FE0E100BA614C /* main.m in Sources */,
+				E511DEE9077FE0E100BA614C /* MyDocument.m in Sources */,
+				E511DEEA077FE0E100BA614C /* PreferenceController.m in Sources */,
+				E511DEEB077FE0E100BA614C /* CLTimerSummary.m in Sources */,
+				E511DEEC077FE0E100BA614C /* CLTimerSummaryTvController.m in Sources */,
+				E593FB0810BD12CA0015ACEB /* CLCommonConst.m in Sources */,
+				E593FB0910BD12CA0015ACEB /* CLTableViewController.m in Sources */,
+				E593FB0A10BD12CA0015ACEB /* CLTableViewRecord.m in Sources */,
+				E593FB0B10BD12CA0015ACEB /* CLTableViewUserDefaultsController.m in Sources */,
+				E593FB4B10BD134E0015ACEB /* CLFileManagerCateg.m in Sources */,
+				E593FB4D10BD134E0015ACEB /* CLTimer.m in Sources */,
+				E593FB4E10BD134E0015ACEB /* CLURLCateg.m in Sources */,
+				E593FB6310BD13A50015ACEB /* cl_debug.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E50A78BC077652690058392F /* HelpOnline */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E50A78BD077652690058392F /* English */,
+			);
+			name = HelpOnline;
+			sourceTree = "<group>";
+		};
+		E586C539074FFCFB00C10F62 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E586C53A074FFCFB00C10F62 /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E586C53B074FFCFB00C10F62 /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E586C53C074FFCFB00C10F62 /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		E586C53F074FFCFB00C10F62 /* Preferences.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E586C540074FFCFB00C10F62 /* English */,
+			);
+			name = Preferences.nib;
+			sourceTree = "<group>";
+		};
+		E5995C0A0755FD51006631F2 /* MyDocument.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5995C0B0755FD51006631F2 /* English */,
+			);
+			name = MyDocument.nib;
+			sourceTree = "<group>";
+		};
+		E5A0AC9307701A0300DA3DC7 /* Credits.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5A0AC9407701A0300DA3DC7 /* English */,
+			);
+			name = Credits.html;
+			sourceTree = "<group>";
+		};
+		E5FF4D140782C20F00390E9E /* CLCommonLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5FF4D150782C20F00390E9E /* English */,
+			);
+			name = CLCommonLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7435E2108F7AC010023756A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = 4.0;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+			};
+			name = Debug;
+		};
+		A7435E2208F7AC010023756A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		A7435E2908F7AC010023756A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPYING_PRESERVES_HFS_DATA = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.2.1;
+				DEBUG_INFORMATION_FORMAT = stabs;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = YES;
+				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimpleTimer_Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = SimpleTimer;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "../../clutils/**";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		A7435E2A08F7AC010023756A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPYING_PRESERVES_HFS_DATA = YES;
+				CURRENT_PROJECT_VERSION = 1.2.1;
+				DEBUG_INFORMATION_FORMAT = stabs;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = YES;
+				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimpleTimer_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = CL_DEBUG_DISABLE;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = SimpleTimer;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "../../clutils/**";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7435E2008F7AC010023756A /* Build configuration list for PBXNativeTarget "Jag SimpleTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7435E2108F7AC010023756A /* Debug */,
+				A7435E2208F7AC010023756A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A7435E2808F7AC010023756A /* Build configuration list for PBXProject "SimpleTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7435E2908F7AC010023756A /* Debug */,
+				A7435E2A08F7AC010023756A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
