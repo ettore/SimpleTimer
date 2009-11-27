@@ -13,10 +13,7 @@
 "url2" = "http://gnu.org";
 "url3" = "http://cubelogic.org";
 "url4" = "http://sourceforge.net";
-"url5" = "http://www.independent.co.uk";
-"url6" = "http://commondreams.org";
 "url7" = "http://mediamatters.org";
-"url8" = "http://www.antanisoftbbs.org/forum/";
                                                  
 /* Default sound directory. The files from this directory will be 
 listed in the sound menu. */
@@ -72,7 +69,7 @@ listed in the sound menu. */
 /* eg: "All rep. ended Dec 25, 2004 11:12:34" */
 "AllEnded" = "All repetitions ended %@";
 /* eg: "Ended Dec 25, 2004 11:12:34" */
-"Ended" = "Ended %@";
+"Ended" = "ENDED %@";
 /* eg: "Warning: timer alert in 5 hours, 1 minute, and 1 second" */
 "WarningMsg" = "Warning: %@\nin %d %@, %d %@, and %d %@.";
 /* eg: "Another reminder will appear Dec 25, 2004 11:12:34" */

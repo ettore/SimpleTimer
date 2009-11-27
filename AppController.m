@@ -366,9 +366,8 @@ row. This method is called only by the UI (Summary window, "New" button).
                 }
             }
             else{
-                // warn the user
                 d = [self reopenDoc:tid];
-                // attempt to close, the normal warning will come out
+                // attempt to close, normal warning will come out
                 [[d myWindow] performClose:sender];
                 
             }
@@ -520,8 +519,7 @@ and the alert response code from the user input that determined it. then
     while (tid>=0)
     {
         ts = [arr objectAtIndex:tid];
-        if ([ts timer] || [ts warnTimer] || 
-            [[[ts doc] timerModel] timerStarted])
+        if ([ts timer] || [[[ts doc] timerModel] timerStarted])
             [self invalidateTimer: tid
                              code: (CLSimpleTimerMainExpMask | 
                                     CLSimpleTimerWarnExpMask)];
@@ -538,13 +536,12 @@ invalidates the timer is active."*/
     NSMutableArray *tvmodel = [sumAllController model];
     CLTimerSummary *ts = [tvmodel objectAtIndex:tid];
     
-    if ([ts timer] || [ts warnTimer] || [[[ts doc] timerModel] timerStarted])
+    if ([ts timer] || [[[ts doc] timerModel] timerStarted])
         [self invalidateTimer: tid 
-                         code: (CLSimpleTimerMainExpMask | 
-                                CLSimpleTimerWarnExpMask)];
+                         code: CLSimpleTimerWarnExpMask];
     
     [tvmodel removeObjectAtIndex: tid];
-    [self recomputeTimerIdsFromId:tid];            
+    [self recomputeTimerIdsFromId:tid];
     [sumAllController updatePerChanges];
     [sumAllController updateUI];
     [dockMenu removeItemAtIndex:(tid+1)];
@@ -715,10 +712,10 @@ element index `tid' and up.
 {
     debug_enter("AppController -startTimer:");
 
-    NSTimeInterval repeatSecs, warnSecs;
+    NSTimeInterval repeatSecs;
     int cycleTimes;
     BOOL repeatFlag;
-    NSDate *fireDate, *warnFireDate;
+    NSDate *fireDate;
     NSString *ending, *willEndStr;
     NSMutableArray *userInfo;
     NSRunLoop *currRunLoop; // the current RunLoop where I register the timers
@@ -791,53 +788,7 @@ element index `tid' and up.
     [tm setTimerStarted: YES];
     cycleTimes = [tm cycleTimes];
     [tm setCycleTimesLeft: cycleTimes];
-    [tm setCycleWarnTimesLeft: cycleTimes];
-    
-    // if warning alert is set, we create a 2nd timer
-    if ([tm warnFlag] == NSOnState)
-    {
-        // warnTimer's identical to the main one but will fire warnSecs before
-        warnSecs = [tm warnAmount];
-        if ([tm warnUOM] == CL_SIMPLETIMER_WARNME_MIN)
-            warnSecs *= 60;
         
-        // subtract warn-me seconds from the fire-date
-        warnFireDate = [fireDate addTimeInterval:(-warnSecs)];
-        
-        // create userinfo array and add timer summary record to it
-        userInfo = [NSMutableArray arrayWithCapacity:2];
-        [userInfo addObject:rec];
-        [userInfo addObject:CL_SIMPLETIMER_WARNING];
-        
-        // eventually invalidate a previous timer still running
-        t = [rec warnTimer];
-        if (t)
-            [self invalidateTimer:timerId code:CLSimpleTimerWarnExpMask];
-        
-        // allocate new warn timer
-        t = [[NSTimer alloc] initWithFireDate:warnFireDate
-                                     interval:repeatSecs
-                                       target:self
-                                     selector:@selector(doGestures:)
-                                     userInfo:userInfo
-                                      repeats:repeatFlag];
-        
-        // retain the timer in the tableView record
-        [rec setWarnTimer: t];
-        
-        // add the timer to the current runloop and modal loop
-        [currRunLoop addTimer:t forMode:NSDefaultRunLoopMode];
-        [currRunLoop addTimer:t forMode:NSModalPanelRunLoopMode];
-        
-        // release timer since I retained it (in set*Timer:)
-        [t release];
-        debug0cocoa(@"AppController -startTimer: warntimer retainCnt=%d",
-                        [t retainCount]);
-        debug0cocoa(@"AppController -startTimer: warntimer fireDate= %@", 
-                        [[t fireDate] description]);
-        t = nil;
-    }
-    
     debug_exit("AppController -startTimer:");
 }
 
@@ -870,13 +821,9 @@ element index `tid' and up.
 
 
 /*" 
-Invalidates the active NSTimer related to `timerId', if instantiated. 
-If `isWarning' is YES, this method Invalidates the active warning NSTimer 
-related to `timerId', if instantiated. A release message is sent to the 
-warn-NSTimer, which is therefore deallocated.
-If `isWarning' is NO, this method Invalidates the active main NSTimer 
-related to `timerId', if instantiated. A release message is sent to the 
-NSTimer and to the updating timer, which are therefore deallocated. 
+Invalidates the active main NSTimer related to `timerId', if instantiated. 
+A release message is sent to the NSTimer and to the updating timer, 
+which are therefore deallocated. 
 The related timer model is updated to the reflect the new status, and if the 
 related MyDocument is open, its UI is updated.
 This method may be called by MyDocument or by the `doGestures' method
@@ -884,33 +831,17 @@ once the timer has completed.
 "*/
 - (void)invalidateTimer:(int)timerId code:(int)code
 {
-    debug_enter("AppController -invalidateTimer:isWarning:");
+    debug_enter("AppController -invalidateTimer:code:");
 
     NSDate *date;
     NSString *si, *dockInfo, *ls;
-    NSTimer *t, *wt, *ut;
+    NSTimer *t, *ut;
     BOOL isRepeatEnabled;
     CLTimerSummary *rec = [[sumAllController model] objectAtIndex: timerId];
     id doc = [rec doc]; // may be either the doc or the timermodel
     CLSimpleTimerModel *tm = [doc timerModel];
     NSBundle *mainBundle = [NSBundle mainBundle];
-    
-    // code is a single bit number
-    
-    if (code & CLSimpleTimerWarnExpMask)
-    {
-        wt = [rec warnTimer];
-        debug0cocoa(@"About to invalidate warnTimer: rtnCnt=%d", 
-                        [wt retainCount]);
-        // must invalidate before releasing otherwise crash
-        [wt invalidate];
-        // sets nil and releases the timer once. If we accidentally send a msg
-        // to timer & it's released but NOT nil, we've a crash
-        [rec setWarnTimer: nil];
-        [tm setCycleWarnTimesLeft:[tm cycleTimes]];
-        debug0cocoa(@"Warning timer invalidated.");
-    }
-    
+        
     if (code & CLSimpleTimerMainExpMask)
     {
         t = [rec timer];
@@ -975,7 +906,7 @@ once the timer has completed.
             }
             else {
                 ls = [mainBundle localizedStringForKey:@"Ended" 
-                                                 value:@"Ended %@"
+                                                 value:@"ENDED %@"
                                                  table:@"Localizable"];
             }
             si = [NSString stringWithFormat: ls, si];
@@ -1006,7 +937,7 @@ once the timer has completed.
         [[dockMenu itemAtIndex: (timerId+1)] setTitle:dockInfo];
     }
     
-    debug_exit("AppController -invalidateTimer:isWarning:");
+    debug_exit("AppController -invalidateTimer:code:");
 }
 
 
@@ -1018,17 +949,14 @@ once the timer has completed.
     // qui retainCount per il timer  giˆ 3 
     debug0cocoa(@"mainTimer: rtnCnt=%d", [aTimer retainCount]);
     
-    double w_m_secs;
-    NSDate *mfdate, *wfdate, *nextFdate, *mtRelatDate;
+    NSDate *mfdate, *nextFdate;
     NSWorkspace *sharedWorkspace;
-    BOOL isWarning = NO, forceAlert = NO;
+    BOOL must_open_alert = NO;
     NSURL *url;
-    NSString *s, *alertTitle, *alertMsg, *mfdateDes, *nextFdateDes,
-        *hourTxt, *minTxt, *secTxt;
-    NSTimeInterval t, tDateInt, wtDateInt;
+    NSString *s, *alertTitle, *alertMsg, *mfdateDes, *nextFdateDes;
+    NSTimeInterval t;
     NSSound *snd;
-    int cycleTimesLeft, invalidationCode, remHour, remHrs, remMins, remSecs,
-        cycleWarnTimesLeft;
+    int cycleTimesLeft, invalidationCode, cycleWarnTimesLeft;
     NSMutableArray *uinfo = [aTimer userInfo];
     NSMutableArray *tvm = [sumAllController model];
     int tid = [tvm indexOfObject:[uinfo objectAtIndex:0]];
@@ -1038,11 +966,8 @@ once the timer has completed.
     NSBundle *mainBundle = [NSBundle mainBundle];
     
     debug0cocoa(@"Executing gestures for %@", self);
-    if ([uinfo count] > 1)
-        isWarning = [[uinfo objectAtIndex:1] isEqual:CL_SIMPLETIMER_WARNING];
     
-    invalidationCode = (isWarning ? CLSimpleTimerWarnExpMask :
-                                    CLSimpleTimerMainExpMask);
+    invalidationCode = CLSimpleTimerMainExpMask;
     
     // check if we have to play a sound
     if (([timerModel sndFlag] == NSOnState) && ([timerModel sndTimes] > 0))
@@ -1076,95 +1001,18 @@ once the timer has completed.
     nextFdate = [mfdate addTimeInterval: t];
     nextFdateDes = [self formattedStringForDate:nextFdate];
     
-    // if the main timer has already expired, ignore the warning timer (if any)
     if (mfdate == nil || [mfdate timeIntervalSinceNow] < 0) 
     {
-        isWarning = NO;
-        
-        // if this was the last (or only) repetition, make sure to open a box 
-        // anyway and also invalidate both timers
+        // if this was the last or only repetition, make sure invalidate both timers
         if ((cycleTimesLeft == 1) || (cycleTimesLeft == 0))
         {
-            forceAlert = YES;
             invalidationCode = 
                 CLSimpleTimerMainExpMask | CLSimpleTimerWarnExpMask;
         }
-    }
-    
+    }    
     
     // handle the case of opening an alert box
-    if (isWarning)
-    {
-        cycleWarnTimesLeft = [timerModel cycleWarnTimesLeft];
-        wfdate = [[rec warnTimer] fireDate];
-        
-        // invalidate warntimer regardless if its fireDate is > maintimer
-        tDateInt  = [mfdate timeIntervalSince1970];
-        wtDateInt = [wfdate timeIntervalSince1970];
-        if (wtDateInt >= tDateInt)
-            invalidationCode |= CLSimpleTimerWarnExpMask;
-    
-        // check if I have to open an alert panel for warning
-        if ([timerModel msgFlag] == NSOnState) 
-        {
-            // interval in seconds//[mfdate timeIntervalSinceDate:wfdate];
-            w_m_secs = [timerModel warnAmount];
-            if ([timerModel warnUOM] == CL_SIMPLETIMER_WARNME_MIN)
-                w_m_secs *= 60;
-            
-            // calculate next main timer firing date
-            mtRelatDate = [wfdate addTimeInterval:w_m_secs];
-
-            // remaining minutes + seconds less than 1 hour
-            remHour = (int) w_m_secs % 3600;
-            remHrs =  w_m_secs / 3600;
-            remMins = remHour / 60;
-            remSecs = remHour % 60;
-            
-            // make the msg text
-            s = [mainBundle localizedStringForKey:@"WarningMsg" 
-                                             value:@"Warning: %@\nin %d %@, %d %@, and %d %@."
-                                             table:@"Localizable"];
-            if (remHrs == 1)
-                hourTxt = [mainBundle localizedStringForKey:@"hour" 
-                                                   value:@"hour"
-                                                   table:@"Localizable"];
-            else
-                hourTxt = [mainBundle localizedStringForKey:@"hours" 
-                                                    value:@"hours"
-                                                    table:@"Localizable"];
-            
-            if (remMins == 1)
-                minTxt = [mainBundle localizedStringForKey:@"minute" 
-                                                  value:@"minute"
-                                                  table:@"Localizable"];
-            else
-                minTxt = [mainBundle localizedStringForKey:@"minutes" 
-                                                   value:@"minutes"
-                                                   table:@"Localizable"];
-            
-            if (remSecs == 1)
-                secTxt = [mainBundle localizedStringForKey:@"second" 
-                                                  value:@"second"
-                                                  table:@"Localizable"];
-            else
-                secTxt = [mainBundle localizedStringForKey:@"seconds" 
-                                                   value:@"seconds"
-                                                   table:@"Localizable"];
-            
-            alertTitle = [NSString stringWithFormat: s, [timerModel msg], 
-                remHrs, hourTxt, remMins, minTxt, remSecs, secTxt];
-            
-            s = [mainBundle localizedStringForKey:@"AnotherReminder" 
-                                        value:@"Another reminder will appear %@."
-                                            table:@"Localizable"];
-            
-            alertMsg = [NSString stringWithFormat: s, [self formattedStringForDate:mtRelatDate]];
-            debug2cocoa(@"alertMsg == %@", alertMsg);
-            NSRunAlertPanel(alertTitle, @"%@", @"Ok", nil, nil, alertMsg);
-        }
-    }
-    else if (([timerModel msgFlag] == NSOnState) || forceAlert) 
+    if (([timerModel msgFlag] == NSOnState)) 
     {
         // we have to open an alert panel for the main timer
         s = [mainBundle localizedStringForKey:@"ReminderTitle" 
@@ -1203,7 +1051,7 @@ once the timer has completed.
         }
 
         debug2cocoa(@"alertMsg == %@", alertMsg);
-        NSRunAlertPanel(alertTitle, @"%@", @"Ok", nil, nil, alertMsg);
+        must_open_alert = YES;
     }
     
     // invalidate timers if no more cycles has to be done
@@ -1222,33 +1070,24 @@ once the timer has completed.
         // Repeat is ON and this is not the last cycle of the repetitions
         //
         
-        if (! isWarning)
-        {
-            s = [mainBundle localizedStringForKey:@"NextRepStatusInfo" 
-                                            value:@"Next repetition (#%d) will end %@"
-                                            table:@"Localizable"];
-            
-            s = [NSString stringWithFormat: s, 
-                ([timerModel cycleTimes] - cycleTimesLeft + 1), nextFdateDes];
-            
-            [d setStatusInfo: s];
-            [rec setPrecomputed:s]; // for the updCountdown method
-        }
+        s = [mainBundle localizedStringForKey:@"NextRepStatusInfo" 
+                                        value:@"Next repetition (#%d) will end %@"
+                                        table:@"Localizable"];
+        
+        s = [NSString stringWithFormat: s, 
+            ([timerModel cycleTimes] - cycleTimesLeft + 1), nextFdateDes];
+        
+        [d setStatusInfo: s];
+        [rec setPrecomputed:s]; // for the updCountdown method
     }
     
     // decrement cycleTimesLeft / cycleWarnTimesLeft 
-    if (isWarning)
-    {
-        if (cycleWarnTimesLeft > 0)
-            [timerModel setCycleWarnTimesLeft: (--cycleWarnTimesLeft)];
-    }
-    else 
-    {
-        if (cycleTimesLeft > 0)
-            [timerModel setCycleTimesLeft: (--cycleTimesLeft)];
-    }
-    
-    
+    if (cycleTimesLeft > 0)
+        [timerModel setCycleTimesLeft: (--cycleTimesLeft)];
+
+    if (must_open_alert)
+        NSRunAlertPanel(alertTitle, @"%@", @"Ok", nil, nil, alertMsg);
+        
     debug_exit("doGestures:");
 }
 

@@ -44,9 +44,6 @@
     IBOutlet NSButton      *playSndCheckbox;
     IBOutlet NSPopUpButton *sndPresets;
     IBOutlet NSTextField   *sndTimesField;
-    //IBOutlet NSButton 	   *warnmeCheckbox;
-    //IBOutlet NSTextField   *warnmeField;
-    //IBOutlet NSMatrix      *warnmeRadio;/*"Radio btn for the warn-me period."*/
     IBOutlet NSButton      *saveUrlBtn;
     IBOutlet NSButton      *saveMsgBtn;
     IBOutlet NSButton 	   *repeatCheckbox; // repeat    
@@ -61,11 +58,9 @@
     IBOutlet NSTextField   *repeatText2;
     IBOutlet NSTextField   *repeatText3;
     IBOutlet NSTextField   *repeatText4;
-    //IBOutlet NSTextField   *warnText1;
     IBOutlet NSTextField   *dateText1;
     IBOutlet NSTextField   *dateText2;
     IBOutlet NSTextField   *dateText3;
-    //IBOutlet NSTextField   *dateText4;
     IBOutlet NSWindow      *closeSheet;
     IBOutlet NSWindow      *docQuitSheet;
 

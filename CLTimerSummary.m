@@ -43,7 +43,6 @@ closed.
         [self setReminder:rem];
         doc = nil;
         timer = nil;
-        warnTimer = nil;
         updatingTimer = nil;
         remainingTimes = -1;
         isDirty = YES;
@@ -101,7 +100,6 @@ closed.
         [self setAutoFlag:(([tm autoFlag] == NSOnState) ? yes : no)];
         [self setReminder:[self generateActionsMeld]];
         timer = nil;
-        warnTimer = nil;
         updatingTimer = nil;
         remainingTimes = -1;
         isDirty = [d isDocumentEdited];
@@ -124,8 +122,6 @@ closed.
     [doc release];
     [timer invalidate]; // harmless if timer is already invalid
     [timer release];
-    [warnTimer invalidate]; // harmless if timer is already invalid
-    [warnTimer release];
     [updatingTimer invalidate]; // harmless if timer is already invalid
     [updatingTimer release];
     [super dealloc];
@@ -430,13 +426,6 @@ Sets the countdown of the receiver and posts a CLTimerSummaryChanged
 	[_t_m_p_ retain];
 	[timer release];
 	timer = _t_m_p_;
-}
-- (NSTimer *)warnTimer { return warnTimer; }
-- (void)setWarnTimer:(NSTimer *)_t_m_p_
-{
-	[_t_m_p_ retain];
-	[warnTimer release];
-	warnTimer = _t_m_p_;
 }
 - (NSTimer *)updatingTimer { return updatingTimer; }
 - (void)setUpdatingTimer:(NSTimer *)_t_m_p_

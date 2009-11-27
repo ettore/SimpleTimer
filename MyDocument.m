@@ -1207,16 +1207,6 @@ implementation this method is called only by windowControllerDidLoadNib:. "*/
     //[sndBrowseBtn setEnabled:flag];
 }
 
-/*
-- (void)enableWarnmeSectionWithModel
-{
-    int state = [timerModel warnFlag];
-    BOOL flag = (state != NSOffState);
-    [warnmeField setEnabled:flag];
-    [warnmeRadio setEnabled:flag];
-}
-*/
-
 - (NSDate *)fireDate { return [timerModel fireDate]; }
 
 - (void)setStatusInfo:(NSString *)s

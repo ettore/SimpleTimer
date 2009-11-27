@@ -17,14 +17,13 @@ extern NSString *CLTimerSummaryChanged;
     NSString *name;
     NSString *countdown;/*"End date if timer not started."*/
     NSString *repeat;/*"Repeat cycle in HH:MM:SS."*/
-    NSString *warn;/*"  "*/
+    NSString *warn;/*" "*/
     NSString *autoFlag;/*" "Yes" or "No". "*/
     NSString *reminder;/*"A meld of the chosen msg/url/sound. "*/
     id doc; /*"Reference to the MyDocument; if the document has been closed but
         we're still olding onto the timer, this member variable is a 
         reference to the timerModel (of class CLSimpleTimerModel)."*/
     NSTimer *timer;
-    NSTimer *warnTimer;
     NSTimer *updatingTimer;
     int remainingTimes; /*"Number of times the sound related to this timer 
         must be played still."*/
@@ -68,8 +67,6 @@ extern NSString *CLTimerSummaryChanged;
 - (void)setDoc:(id)_t_m_p_;
 - (NSTimer *)timer;
 - (void)setTimer:(NSTimer *)_t_m_p_;
-- (NSTimer *)warnTimer;
-- (void)setWarnTimer:(NSTimer *)_t_m_p_;
 - (NSTimer *)updatingTimer;
 - (void)setUpdatingTimer:(NSTimer *)_t_m_p_;
 - (void)updCountdown;
