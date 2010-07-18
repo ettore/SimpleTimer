@@ -6,14 +6,13 @@
 "msg5" = "Do some physical exercises";
 "msg6" = "Water the plants";
 "msg7" = "Meditate";
-"msg8" = "Practice Tai Chi";
+"msg8" = "Stop looking at porn!";
 
 /* My Usual URLs */
 "url1" = "http://localhost";
 "url2" = "http://gnu.org";
 "url3" = "http://cubelogic.org";
-"url4" = "http://sourceforge.net";
-"url7" = "http://mediamatters.org";
+"url4" = "http://news.ycombinator.com";
                                                  
 /* Default sound directory. The files from this directory will be 
 listed in the sound menu. */

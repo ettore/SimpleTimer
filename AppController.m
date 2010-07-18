@@ -72,7 +72,7 @@ the application defaults. "*/
                                                  value:@"Vacuum"
                                                  table:@"Localizable"];
     NSString *msg5 = [mainBundle localizedStringForKey:@"msg5" 
-                                                 value:@"stop looking at porn!"
+                                                 value:@"Do some physical exercises"
                                                  table:@"Localizable"];
     NSString *msg6 = [mainBundle localizedStringForKey:@"msg6" 
                                                  value:@"Water the plants"
@@ -81,7 +81,7 @@ the application defaults. "*/
                                                  value:@"Meditate"
                                                  table:@"Localizable"];
     NSString *msg8 = [mainBundle localizedStringForKey:@"msg8" 
-                                                 value:@"Practice Tai Chi"
+                                                 value:@"Stop looking at porn!"
                                                  table:@"Localizable"];
     
     // NB!! ogni rec ha retainCount=2: uno causa l'alloc, l'altro causa 
@@ -107,19 +107,7 @@ the application defaults. "*/
                                        value:@"http://cubelogic.org"
                                        table:@"Localizable"];
     msg4 = [mainBundle localizedStringForKey:@"url4" 
-                                       value:@"http://sourceforge.net"
-                                       table:@"Localizable"];
-    msg5 = [mainBundle localizedStringForKey:@"url5" 
-                                       value:@"http://www.independent.co.uk"
-                                       table:@"Localizable"];
-    msg6 = [mainBundle localizedStringForKey:@"url6" 
-                                       value:@"http://commondreams.org"
-                                       table:@"Localizable"];
-    msg7 = [mainBundle localizedStringForKey:@"url7" 
-                                       value:@"http://mediamatters.org"
-                                       table:@"Localizable"];
-    msg8 = [mainBundle localizedStringForKey:@"url8" 
-                                       value:@"http://www.antanisoftbbs.org/forum/"
+                                       value:@"http://news.ycombinator.com"
                                        table:@"Localizable"];
     
     NSMutableArray *urlPresets = [NSMutableArray arrayWithObjects:
@@ -127,10 +115,6 @@ the application defaults. "*/
         [[CLSingleStringRecord alloc] initWithString:msg2],
         [[CLSingleStringRecord alloc] initWithString:msg3],
         [[CLSingleStringRecord alloc] initWithString:msg4],
-        [[CLSingleStringRecord alloc] initWithString:msg5],
-        [[CLSingleStringRecord alloc] initWithString:msg6],
-        [[CLSingleStringRecord alloc] initWithString:msg7],
-        [[CLSingleStringRecord alloc] initWithString:msg8],
         nil];
     
     // read the default sound directory
