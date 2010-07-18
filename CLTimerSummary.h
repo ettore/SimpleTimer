@@ -17,7 +17,6 @@ extern NSString *CLTimerSummaryChanged;
     NSString *name;
     NSString *countdown;/*"End date if timer not started."*/
     NSString *repeat;/*"Repeat cycle in HH:MM:SS."*/
-    NSString *warn;/*" "*/
     NSString *autoFlag;/*" "Yes" or "No". "*/
     NSString *reminder;/*"A meld of the chosen msg/url/sound. "*/
     id doc; /*"Reference to the MyDocument; if the document has been closed but
@@ -32,8 +31,7 @@ extern NSString *CLTimerSummaryChanged;
 }
 
 // initializers
-- (id)initWithName:(NSString *)n countdown:(NSString *)con 
-            repeat:(NSString *)r warn:(NSString *)w
+- (id)initWithName:(NSString *)n countdown:(NSString *)con repeat:(NSString *)r 
           autoFlag:(NSString *)a reminder:(NSString *)rem;
 - (id)initWithSimpleTimerDocument:(MyDocument *)d;
 
@@ -57,8 +55,6 @@ extern NSString *CLTimerSummaryChanged;
 - (void)setCountdown:(NSString *)_t_m_p_;
 - (NSString *)repeat;
 - (void)setRepeat:(NSString *)_t_m_p_;
-- (NSString *)warn;
-- (void)setWarn:(NSString *)_t_m_p_;
 - (NSString *)autoFlag;
 - (void)setAutoFlag:(NSString *)_t_m_p_;
 - (NSString *)reminder;

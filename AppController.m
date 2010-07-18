@@ -177,14 +177,14 @@ the application defaults. "*/
     // initialize date formats strings
     mainBundle = [NSBundle mainBundle];
     samedayDateFormat = [mainBundle localizedStringForKey:@"SamedayDateFormat" 
-                                                    value:@"at %I:%M:%S %p"
+                                                    value:@"at %1I:%M:%S %p"
                                                     table:@"Localizable"];
     sameyearDateFormat= [mainBundle localizedStringForKey:@"SameyearDateFormat" 
-                                                    value:@"%b %e at %I:%M:%S %p"
+                                                    value:@"%b %e at %1I:%M:%S %p"
                                                     table:@"Localizable"];
     fullDateFormat = 
         [mainBundle localizedStringForKey:@"FullDateFormat" 
-                                    value:@"%b %e, %Y at %I:%M:%S %p"
+                                    value:@"%b %e, %Y at %1I:%M:%S %p"
                                     table:@"Localizable"];
     
     // init the default snd location
@@ -198,10 +198,6 @@ the application defaults. "*/
                 selector:@selector(handleNewSimpleTimerDocument:)
                     name:CLSimpleTimerNew
                   object:nil];
-    /*[ncenter addObserver:self
-                selector:@selector(handleClosingSimpleTimerDocument:)
-                    name:CLSimpleTimerWindowClosing
-                  object:nil];*/
     preferenceController = nil;
     countdownFont = [NSFont boldSystemFontOfSize:10.0];
     countdownEndedFont = [NSFont boldSystemFontOfSize:10.0];
@@ -211,7 +207,6 @@ the application defaults. "*/
 
     [self loadPreferencesNib];
     didReviewChanges = NO;
-    //isQuittingOperation = NO;
     
     debug0cocoa(@"AppController.init - returning....");
     return self;
@@ -405,21 +400,22 @@ row. This method is called only by the UI (Summary window, "New" button).
     NSMutableArray *tvm;
 
     debug_enter("AppController -handleNewSimpleTimerDocument");
-    
+
+    d = [note object];
+    fname = [d fileName]; //fname will be nil for a timer created from scratch
+    if (fname != nil)
+        currentOperation = CLOpeningTimerFromDisk;
+
     if (currentOperation == CLOpeningTimerFromDisk)
     {
-        //
         // we already have a doc opened by the framework. We need to understand
-        // if we've to populate this doc. with a timer already existing or not,
+        // if we've to populate this doc with a timer already existing or not,
         // and that happens if the filename of the newly opened file is already
         // between the ones that are currently handled by AppController, inside
         // [sumAllController model].
-        //
-        
+                
         debug0msg0("AppController -handleNewSimpleTimerDocument: checking if opening timer from disk or from memory");
         
-        d = [note object];
-        fname = [d fileName];
         tvm = [sumAllController model];
         tvmcount = [tvm count];
         i = 0;
@@ -440,6 +436,8 @@ row. This method is called only by the UI (Summary window, "New" button).
         }
     }
     
+    debug0cocoa(@"currentOperation=%d  CLAddingNewTimer=%d", 
+                currentOperation, CLAddingNewTimer);
     if (currentOperation & CLAddingNewTimer)
     {
         //
@@ -447,7 +445,6 @@ row. This method is called only by the UI (Summary window, "New" button).
         //  CLOpeningTimerFromDisk (in case it was not found in memory)
         //
         
-        d = [note object];
         debug0cocoa(@"AppController -handleNewSimpleTimerDocument: adding new timer: %@", [d description]);
         
         // set timerId of the new doc
@@ -469,9 +466,13 @@ row. This method is called only by the UI (Summary window, "New" button).
         
         // start the timer if autostart was on
         tm = [d timerModel];
-        if ( (! [tm timerStarted]) && ([tm autoFlag] == NSOnState) &&
-             (currentOperation != CLCreatingNewTimerFromScratch) )
+        if ( ![tm timerStarted]
+            && [tm autoFlag] == NSOnState
+            && (currentOperation != CLCreatingNewTimerFromScratch) 
+            )
+        {
             [d startTimer:d];
+        }
         
         // release what we just allocated
         [docki release];
@@ -488,24 +489,6 @@ row. This method is called only by the UI (Summary window, "New" button).
     debug_exit("AppController -handleNewSimpleTimerDocument");
 }
 
-
-/*" 
-This is the callback method for notification CLSimpleTimerWindowClosing.
-It is called by [MyDocument document:shouldClose:]. This method merely 
-extracts the document being closed from the object of the notification,
-and the alert response code from the user input that determined it. then
-
-"*//*
-- (void)handleClosingSimpleTimerDocument:(NSNotification *)note
-{
-    MyDocument *d = [note object];
-    NSDictionary *userInfo = [note userInfo];
-    NSString *alertReturnCode = [userInfo objectForKey:CLNSAlertReturn];
-    
-    [self handleClosingSimpleTimerDocument:d contextInfo:alertReturnCode];
-}*/
-
-
 // ##############################################################
 //                     UTILITY METHODS
 // ##############################################################
@@ -521,8 +504,7 @@ and the alert response code from the user input that determined it. then
         ts = [arr objectAtIndex:tid];
         if ([ts timer] || [[[ts doc] timerModel] timerStarted])
             [self invalidateTimer: tid
-                             code: (CLSimpleTimerMainExpMask | 
-                                    CLSimpleTimerWarnExpMask)];
+                             code: CLSimpleTimerMainExpMask];
         tid--;
     }
 }
@@ -538,7 +520,7 @@ invalidates the timer is active."*/
     
     if ([ts timer] || [[[ts doc] timerModel] timerStarted])
         [self invalidateTimer: tid 
-                         code: CLSimpleTimerWarnExpMask];
+                         code: CLSimpleTimerMainExpMask];
     
     [tvmodel removeObjectAtIndex: tid];
     [self recomputeTimerIdsFromId:tid];
@@ -956,7 +938,7 @@ once the timer has completed.
     NSString *s, *alertTitle, *alertMsg, *mfdateDes, *nextFdateDes;
     NSTimeInterval t;
     NSSound *snd;
-    int cycleTimesLeft, invalidationCode, cycleWarnTimesLeft;
+    int cycleTimesLeft, invalidationCode;
     NSMutableArray *uinfo = [aTimer userInfo];
     NSMutableArray *tvm = [sumAllController model];
     int tid = [tvm indexOfObject:[uinfo objectAtIndex:0]];
@@ -1006,8 +988,7 @@ once the timer has completed.
         // if this was the last or only repetition, make sure invalidate both timers
         if ((cycleTimesLeft == 1) || (cycleTimesLeft == 0))
         {
-            invalidationCode = 
-                CLSimpleTimerMainExpMask | CLSimpleTimerWarnExpMask;
+            invalidationCode = CLSimpleTimerMainExpMask;
         }
     }    
     
@@ -1055,8 +1036,7 @@ once the timer has completed.
     }
     
     // invalidate timers if no more cycles has to be done
-    if (([timerModel repeatFlag] == NSOffState) || 
-        (cycleTimesLeft == 0) || (cycleWarnTimesLeft == 0))
+    if ([timerModel repeatFlag] == NSOffState || cycleTimesLeft == 0)
     {
         //
         // Repeat is OFF or this is the last cycle of the repetitions
@@ -1071,7 +1051,7 @@ once the timer has completed.
         //
         
         s = [mainBundle localizedStringForKey:@"NextRepStatusInfo" 
-                                        value:@"Next repetition (#%d) will end %@"
+                                        value:@"Next (#%d) will end %@"
                                         table:@"Localizable"];
         
         s = [NSString stringWithFormat: s, 
@@ -1081,12 +1061,12 @@ once the timer has completed.
         [rec setPrecomputed:s]; // for the updCountdown method
     }
     
-    // decrement cycleTimesLeft / cycleWarnTimesLeft 
+    // decrement cycleTimesLeft 
     if (cycleTimesLeft > 0)
         [timerModel setCycleTimesLeft: (--cycleTimesLeft)];
 
     if (must_open_alert)
-        NSRunAlertPanel(alertTitle, @"%@", @"Ok", nil, nil, alertMsg);
+        NSRunAlertPanel(alertTitle, @"%@", @"OK", nil, nil, alertMsg);
         
     debug_exit("doGestures:");
 }
@@ -1111,11 +1091,12 @@ a hint on what to do (from the sheets). `c' is a pointer to int pointing at:
    doc eventually saved.
 In any case, after whatever sheet is closed, control goes to this method.
  "*/
-- (void) doc:(NSDocument *)d
- shouldClose:(BOOL)shouldClose 
- contextInfo:(void *)c
+- (void) document:(NSDocument *)document
+      shouldClose:(BOOL)shouldClose 
+      contextInfo:(void *)c
 {
     debug_enter("AppController -document:shouldClose:contextInfo");
+    MyDocument *d = (MyDocument *)document;
     
     if (c == NULL)
         c = (void *)&CLRemoveOnCloseSheetCode;
@@ -1123,7 +1104,7 @@ In any case, after whatever sheet is closed, control goes to this method.
     if (CLKeepOnCloseSheetCode == *(int *)c)
     {
         // "Keep timer but close document" button was pressed
-        [self handleClosingSimpleTimerDocument:(MyDocument *)d contextInfo:c];
+        [self handleClosingSimpleTimerDocument:d contextInfo:c];
         debug0cocoa(@"Closed MyDocument (keeping timer): %@", d);        
     }
     else
@@ -1133,8 +1114,7 @@ In any case, after whatever sheet is closed, control goes to this method.
         // "Don't Save" (but this method could have been invoked with YES)
         if (shouldClose)
         {
-            [self handleClosingSimpleTimerDocument:(MyDocument *)d 
-                                       contextInfo:c];
+            [self handleClosingSimpleTimerDocument:d contextInfo:c];
             debug0cocoa(@"Closed MyDocument (removing timer): %@", d);
         }
     }
@@ -1189,7 +1169,7 @@ code from the user input that determined it.
 // ############################################################
 
 /*" 
-Eventually calls -reviewDocs that will trigger the custom alert termination 
+Eventually calls -reviewDocsBeforeQuitting that will trigger the custom alert termination 
 box. 
 "*/
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)app
@@ -1199,7 +1179,7 @@ box.
     
     if (!didReviewChanges)
         // eventually open the custom termination alert
-        choice = [self reviewDocs];
+        choice = [self reviewDocsBeforeQuitting];
     
     didReviewChanges = NO;
     // choice == NSAlertDefaultReturn   --> Cancel btn
@@ -1215,13 +1195,12 @@ box.
 Triggers the custom alert termination box if there are unsaved or active
 timers.
 "*/
-- (int)reviewDocs
+- (int)reviewDocsBeforeQuitting
 {
     NSEnumerator *enumer;
     CLTimerSummary *rec;
     CLSimpleTimerModel *tm;
     id doc;
-    BOOL isDocOpen = NO;
     int i = 0, choice;
     unsigned numUnsaved = 0, numActive = 0;
     
@@ -1231,22 +1210,29 @@ timers.
     {
         doc = [rec doc];
         tm = [doc timerModel];
-        isDocOpen = [doc isKindOfClass:[MyDocument class]];
         
         if ([tm timerStarted])
             numActive++;
         
         if ([rec isDocumentEdited])
+        {
             numUnsaved++;
-    
+            BOOL isDocOpen = [doc isKindOfClass:[MyDocument class]];
+            if (!isDocOpen)
+                [self removeTimerWithId:[doc timerId]];
+        }
+        
         i++;
     }
+    
+    // all the unsaved non-active timers whose document is not even open 
+    // can simply be deleted NOW
     
     // if the alert won't be opened, we quit anyway
     choice = NSAlertAlternateReturn;
     
     // if there're some unsaved || active, open dialog
-    if (numUnsaved || numActive)
+    if (/*numUnsaved || */numActive)
         choice = [self openTerminationAlertWithActive:numActive 
                                               unsaved:numUnsaved];
     return choice;
@@ -1361,7 +1347,7 @@ http://cubelogic.org/support/donations/paypal-SimpleTimer.html "*/
                                     value:@"Thank you for considering a donation!"
                                     table:@"Localizable"];
     s = [mainBundle localizedStringForKey:@"DonationAlertMsg" 
-                                    value:@"Now you will be redirected to the PayPal website. Please be patient, some time is needed to load the PayPal page. Login into your PayPal account, use <e@cubelogic.org> as \"Recipient's Email\" (if not already filled in), and send an amount of your choice, in a currency of your choice!\n\nIf you don't have a PayPal account, please consider signing up: it's free.\nIf you have any questions or concerns regarding your donation, please feel free to contact Cubelogic at <support@cubelogic.org>.\nThanks for your support!"
+                                    value:@"Now you will be redirected to the PayPal website. Login into your PayPal account, use <e@cubelogic.org> as \"Recipient's Email\" (if not already filled in), and send an amount of your choice, in a currency of your choice.\n\nIf you have any questions or concerns regarding your donation, please feel free to contact Cubelogic at <support@cubelogic.org>.\nThanks for your support!"
                                     table:@"Localizable"];
     gotoPaypal = [mainBundle localizedStringForKey:@"GotoPayPal" 
                                              value:@"Go to PayPal"

@@ -22,6 +22,7 @@
 		E511DEEB077FE0E100BA614C /* CLTimerSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BC3D070761D60D008926FE /* CLTimerSummary.m */; };
 		E511DEEC077FE0E100BA614C /* CLTimerSummaryTvController.m in Sources */ = {isa = PBXBuildFile; fileRef = E540817707643E6600E06702 /* CLTimerSummaryTvController.m */; };
 		E511DEF4077FE0E100BA614C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		E580E9C510BFEF4E0081D962 /* SimpleTimerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = E580E9C410BFEF4E0081D962 /* SimpleTimerIcon.icns */; };
 		E593FB0810BD12CA0015ACEB /* CLCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0010BD12CA0015ACEB /* CLCommonConst.m */; };
 		E593FB0910BD12CA0015ACEB /* CLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0310BD12CA0015ACEB /* CLTableViewController.m */; };
 		E593FB0A10BD12CA0015ACEB /* CLTableViewRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB0510BD12CA0015ACEB /* CLTableViewRecord.m */; };
@@ -42,6 +43,7 @@
 		E511DEF5077FE0E100BA614C /* SimpleTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E540817607643E6600E06702 /* CLTimerSummaryTvController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTimerSummaryTvController.h; sourceTree = "<group>"; };
 		E540817707643E6600E06702 /* CLTimerSummaryTvController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTimerSummaryTvController.m; sourceTree = "<group>"; };
+		E580E9C410BFEF4E0081D962 /* SimpleTimerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SimpleTimerIcon.icns; sourceTree = "<group>"; };
 		E586C4D4074FFBA600C10F62 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		E586C4D5074FFBA600C10F62 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; usesTabs = 0; };
 		E586C4E1074FFBBB00C10F62 /* CLSimpleTimerModel.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CLSimpleTimerModel.h; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E580E9C410BFEF4E0081D962 /* SimpleTimerIcon.icns */,
 				E5FF4D140782C20F00390E9E /* CLCommonLocalizable.strings */,
 				E586C539074FFCFB00C10F62 /* Localizable.strings */,
 				E50A78BC077652690058392F /* HelpOnline */,
@@ -289,6 +292,7 @@
 				E511DED5077FE0E100BA614C /* Preferences.nib in Resources */,
 				E511DED6077FE0E100BA614C /* MyDocument.nib in Resources */,
 				E511DEE3077FE0E100BA614C /* Credits.html in Resources */,
+				E580E9C510BFEF4E0081D962 /* SimpleTimerIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +438,7 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = 4.0;
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -444,8 +449,8 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPYING_PRESERVES_HFS_DATA = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.2.1;
-				DEBUG_INFORMATION_FORMAT = stabs;
+				CURRENT_PROJECT_VERSION = 1.3;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
@@ -454,6 +459,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SimpleTimer_Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -477,7 +483,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPYING_PRESERVES_HFS_DATA = YES;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEBUG_INFORMATION_FORMAT = stabs;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

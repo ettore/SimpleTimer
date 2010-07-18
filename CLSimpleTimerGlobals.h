@@ -63,8 +63,6 @@ extern NSString *CLDefaultSoundMenuTitle;
 extern NSString *CLSimpleTimerDocType;
 // means the main timer must be invalidated
 extern const int CLSimpleTimerMainExpMask;
-// DEPRECATED means the warn timer must be invalidated
-extern const int CLSimpleTimerWarnExpMask;
 // means the timer was invalidated by the user
 extern const int CLSimpleTimerUserInvMask;
 

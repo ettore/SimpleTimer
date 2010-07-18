@@ -63,7 +63,7 @@
 - (void)docOnClose:(NSDocument *)doc 
            didSave:(BOOL)didSave 
        contextInfo:(void *)contextInfo;
-- (void) doc:(NSDocument *)d shouldClose:(BOOL)b contextInfo:(void *)c;
+- (void)document:(NSDocument *)d shouldClose:(BOOL)b contextInfo:(void *)c;
 - (void)handleClosingSimpleTimerDocument:(MyDocument *)doc
                              contextInfo:(void *)contextInfo;
 
@@ -78,7 +78,7 @@
 // termination methods
 - (int)openTerminationAlertWithActive:(int)numActive unsaved:(int)numUnsaved;
 - (void) invalidateAllTimers;
-- (int)reviewDocs;
+- (int)reviewDocsBeforeQuitting;
 // - (void)reviewAllDocsOnQuit;
 // - (void)restoreDirtyStatusForIndexes:(NSSet *)set;
 

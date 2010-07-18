@@ -96,9 +96,6 @@
 - (IBAction) startTimer:(id)sender;
 - (IBAction) invalidateTimer:(id)sender;
 - (IBAction) loadSoundOpenPanel:(id)sender;
-//- (IBAction) changeWarnmeCheck:(id)sender;
-//- (IBAction) changeWarnme:(id)sender;
-//- (IBAction) changeWarnmeRadio:(id)sender;
 - (IBAction) changeCycleTimes:(id)sender;
 - (IBAction) changeAfterHour:(id)sender;
 - (IBAction) changeAfterMin:(id)sender;
@@ -137,7 +134,6 @@
 - (void) enableRepeatSectionWithModel;
 - (void) enableUrlSectionWithModel;
 - (void) enableSnd:(int)state;
-//- (void) enableWarnmeSectionWithModel;
 - (void) replacePopupMenu: (NSPopUpButton*)popUpMenu
         withRecordsArray: (NSMutableArray*)arrayOfRecords
                    title: (NSString*)title;

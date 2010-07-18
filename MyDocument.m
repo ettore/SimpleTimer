@@ -89,8 +89,21 @@
 		[[NSBundle mainBundle] localizedStringForKey:@"ChooseSound"
 											   value:@"Choose Sound..."
 											   table:@"Localizable"]];
+
+//    [ncenter addObserver:self
+//                selector:@selector(handleClosingSimpleTimerDocument:)
+//                    name:CLSimpleTimerWindowClosing
+//                  object:nil];
+    
     debug_exit("[MyDocument awakeFromNib]");
 }
+
+//- (void)handleClosingSimpleTimerDocument:(NSNotification *)note
+//{
+//    //[self handleClosingSimpleTimerDocument:self contextInfo:nil];
+//    [self removeTimerWithId:timerId];
+//}
+
 
 // .3.
 /*" 
@@ -107,8 +120,6 @@ executed once the windowController has loaded the document's window.
     // set up radio buttons. NB: can't do this in init! NIB isn't loaded yet 
     [dateRadio setMode:NSRadioModeMatrix];
     [dateRadio setAllowsEmptySelection:NO];
-    //[warnmeRadio setMode:NSRadioModeMatrix];
-    //[warnmeRadio setAllowsEmptySelection:NO];
     
     // posts notification to tell AppController there's a new timer
     ncenter = [NSNotificationCenter defaultCenter];
@@ -158,41 +169,50 @@ is opened instead.
     // the document.
 
     debug_enter("MyDocument -shouldCloseWindowController:");
-    BOOL alwaysRemove = 
-        ([[appController preferenceController] alwaysRemove] == NSOnState);
-    BOOL tstart = [timerModel timerStarted];
-        
 
-    if (alwaysRemove)
+    BOOL rm = ([[appController preferenceController] alwaysRemove] == NSOnState);
+    BOOL tstart = [timerModel timerStarted];
+    
+    if (rm)
     {
-        // no warnings whatsoever
-        [appController doc: self
-               shouldClose: YES
-               contextInfo: (void *)&CLRemoveOnCloseSheetCode];
+        // close document, no warnings whatsoever
+        [appController document: self
+                    shouldClose: YES
+                    contextInfo: (void *)&CLRemoveOnCloseSheetCode];
     }
-    /*else if ([appController isQuittingOperation] && tstart)
-    {
-        [NSApp beginSheet:docQuitSheet
-           modalForWindow:myWindow
-            modalDelegate:self
-    didEndSelector:@selector(timerStillRunSheetDidEnd:returnCode:contextInfo:)
-              contextInfo:NULL];      
-    }*/
     else if (tstart)
     {
         [NSApp beginSheet:closeSheet
            modalForWindow:myWindow
             modalDelegate:self
-    didEndSelector:@selector(timerStillRunSheetDidEnd:returnCode:contextInfo:)
+           didEndSelector:@selector(timerStillRunSheetDidEnd:returnCode:contextInfo:)
               contextInfo:NULL];
     }
-    else {
+    else 
+    {
         [self canCloseDocumentWithDelegate:appController 
-                    shouldCloseSelector:@selector(doc:shouldClose:contextInfo:)
-                               contextInfo:NULL];
+                    shouldCloseSelector:@selector(document:shouldClose:contextInfo:)
+                               contextInfo:(void *)&CLRemoveOnCloseSheetCode];
     }
+    
     debug_exit("MyDocument -shouldCloseWindowController:");
 }
+
+//- (void)canCloseDocumentWithDelegate:(id)app_controller
+//                 shouldCloseSelector:(SEL)shouldCloseSelector 
+//                         contextInfo:(void *)contextInfo
+//{
+//    [super canCloseDocumentWithDelegate:app_controller
+//                   shouldCloseSelector:shouldCloseSelector
+//                           contextInfo:contextInfo];
+//}
+
+//- (void)close
+//{
+//    [appController document: self
+//                shouldClose: YES
+//                contextInfo: (void *)&CLRemoveOnCloseSheetCode];
+//}
 
 /*" :: 2 ::
 This is the delegate callback method called when the modal session of the 
@@ -218,16 +238,16 @@ optional context information, which is always NULL.
     else if (code == CLKeepOnCloseSheetCode)
     {
         // Case: "Keep Timer but Close window": must close doc but keep t.model
-        [appController doc: self
-               shouldClose: YES
-               contextInfo: (void *)&CLKeepOnCloseSheetCode];
+        [appController document: self
+                    shouldClose: YES
+                    contextInfo: (void *)&CLKeepOnCloseSheetCode];
     } 
     else if (code == CLRemoveOnCloseSheetCode)
     {
         // Case: "Remove Timer": must close doc and remove timerModel
-        [appController doc: self
-               shouldClose: YES
-               contextInfo: (void *)&CLRemoveOnCloseSheetCode];
+        [appController document: self
+                    shouldClose: YES
+                    contextInfo: (void *)&CLRemoveOnCloseSheetCode];
     }
     
     debug0msg("MyDocument -timerStillRunSheetDidEnd: doc rtnCnt = %d", 
@@ -767,36 +787,6 @@ user defaults. */
     debug_exit("SimpleTimer: [MyDocument saveMsg]");
 }
 
-
-/*- (IBAction) changeWarnmeCheck:(id)sender
-{
-    debug_enter("changeWarnmeCheck:");
-    int state = [warnmeCheckbox state];
-    [timerModel setWarnFlag: state];
-    [self enableWarnmeSectionWithModel];
-    [myWindow makeFirstResponder: sender];
-    [self updateChangeCount:NSChangeDone];
-    debug_exit("changeWarnmeCheck:");    
-}
-
-- (IBAction) changeWarnme:(id)sender
-{
-    if ([warnmeField floatValue] != [timerModel warnAmount])
-    {
-        [self updateChangeCount:NSChangeDone];
-        [timerModel setWarnAmount: [warnmeField intValue]];
-    }
-}
-
-- (IBAction) changeWarnmeRadio:(id)sender
-{
-    debug_enter("changeWarnmeRadio:");
-    [timerModel setWarnUOM: [warnmeRadio selectedColumn]];
-    [myWindow makeFirstResponder: sender];
-    [self updateChangeCount:NSChangeDone];
-    debug_exit("changeWarnmeRadio:");
-}*/
-
 /*" This action is called by the Autostart checkbox. "*/
 - (IBAction) changeAutostartCheck:(id)sender
 {
@@ -897,8 +887,7 @@ invalidated by method `invalidateTimer:code:' of class AppController.
     if ([timerModel timerStarted]) {
         [appController invalidateTimer:timerId 
                                   code:(CLSimpleTimerUserInvMask | 
-                                        CLSimpleTimerMainExpMask | 
-                                        CLSimpleTimerWarnExpMask)];
+                                        CLSimpleTimerMainExpMask)];
     }
     [self updateUIWithTimerStatus];
     debug_exit("invalidateTimer:");
@@ -1048,19 +1037,6 @@ widgets whose status is dependent on the timer activation status.
     [dateText1 setTextColor:col];
     [dateText2 setTextColor:col];
     [dateText3 setTextColor:col];
-    //[dateText4 setTextColor:col];
-    
-    // update warning section
-    /*
-    if (isNotStarted)
-        [self enableWarnmeSectionWithModel];
-    else {
-        [warnmeRadio setEnabled:NO];
-        [warnmeField setEnabled:NO];
-    }
-    [warnmeCheckbox setEnabled:isNotStarted];
-    [warnText1 setTextColor:col];
-    */
     
     // update repeat section
     if (isNotStarted)
@@ -1140,17 +1116,6 @@ implementation this method is called only by windowControllerDidLoadNib:. "*/
     [actualMsg setStringValue:[timerModel msg]];
     [openAlertCheckbox setState:[timerModel msgFlag]];
     
-    /*
-    // set WARNME
-    flag = [timerModel warnFlag];
-    [warnmeField setFloatValue:[timerModel warnAmount]];
-    selRow = [timerModel warnUOM];
-    [warnmeRadio selectCellAtRow:0 column:selRow];
-    [[warnmeRadio cellAtRow:0 column:selRow] setState:NSOnState];
-    [[warnmeRadio cellAtRow:0 column:abs(selRow-1)] setState:NSOffState];
-    [warnmeCheckbox setState:flag];
-    */
-
     // set AUTOSTART
     [autostartCheckbox setState:[timerModel autoFlag]];
     // set Repeat (Cycle)

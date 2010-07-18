@@ -1,28 +1,33 @@
-SimpleTimer v1.2
+SimpleTimer v1.3
 
 Description:
-With SimpleTimer you can create timers and reminders for your daily chores or other duties you have to accomplish during the day or week. The user interface allows you to quickly set up a reminder (e.g. to remember to do laundry 45 minutes from now), but it's easy to enable more advanced scheduling operations. However, SimpleTimer does not aim to replace utilities like cron. When the timer expires, you can:
+With SimpleTimer you can create timers and reminders for your daily chores or duties. The user interface allows you to quickly set up a reminder (e.g. to remember to do laundry 45 minutes from now), but it's easy to enable more advanced scheduling operations. (However, SimpleTimer does not aim to replace advanced scheduling utilities like cron.) When the timer expires, you can:
 - print a alert message on the screen,
 - open a web page with the preferred browser or mail application,
 - play a sound (MP3, AIFF, etc.)
 
 Requirements:
-SimpleTimer v1.2 runs on Max OS X 10.2 and higher. This is a Universal Binary, so it also should run on Intel hardware, although this has not been tested.
+SimpleTimer v1.3 runs on Max OS X 10.1 and higher. This is a Universal Binary, so it runs on PPC and Intel machines.
 
 Installation:
 Just drag the SimpleTimer application icon wherever you want.
 
-Note about use:
-Use 24-hour format for "At Date" field.
+Note about the "At Date" field format:
+The "At Date" field accepts date/time in the following format only: 
+YYYY-MM-DD hh:mm:ss (year-month-day hour:minutes:seconds) with 24-hour format.
 
 Source-code:
-Freely available at http://cubelogic.org/simpletimer/ or at CVS repository (kindly hosted by SourceForge.net): http://cvs.sourceforge.net/viewcvs.py/clsimpletimer/src/
+Freely available at http://cubelogic.org/simpletimer. Current code is available at the following SVN repository: http://cubelogic.org/stimer/
+There's an older CVS repository at SourceForge.net but it is (and inevitably will be) rather outdated: http://cvs.sourceforge.net/viewcvs.py/clsimpletimer/src/
+
+Help needed:
+I am looking for testers for the following systems: Mac OS X 10.1, 10.2, 10.4, 10.5.  The current SimpleTimer version (1.3) has been tested only on Mac OS X 10.6 (intel) and 10.3 (ppc). I would like to extend testing to the mentioned OS X versions but I lack resources for such testing. If you are interested intel contributing to SimpleTimer, please email me and we'll work something out. Your name will be included in the credits for sure.
 
 License:
 This software is free under the terms of the GNU GPL. You should find the license in the ``COPYING'' file included in the disk image, or through the Online Help. If you can't find it, please look at http://gnu.org/licenses/
 
-Release Date:
-January, 2006
+Current Release Date:
+July, 2010
 
 Thank you:
 Judy Hui, Lorenzo Pazzi, Ken Gillett, Stephen Cristol, Claude Rondeau
@@ -36,6 +41,6 @@ http://cubelogic.org/support/donations/paypal-SimpleTimer.html
 You will receive lifetime support, updates, email notifications (if you want them), and gratitude. If you need more informations, please send an email before sending money. Thank you for your support.
 
 Comments, suggestions, questions:
-e@cubelogic.org
+support@cubelogic.org
 
-Copyright © 2003 - 2006 Cubelogic
+Copyright (c) 2003 - 2010 Cubelogic

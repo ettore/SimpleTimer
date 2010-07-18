@@ -51,14 +51,14 @@ listed in the sound menu. */
 
 /* Donation alert strings */
 "DonationAlertTitle" = "Thank you for considering a donation!";
-"DonationAlertMsg" = "Now you will be redirected to the PayPal website. Please be patient, some time is needed to load the PayPal page. Login into your PayPal account, use <e@cubelogic.org> as \"Recipient's Email\" (if not already filled in), and send an amount of your choice, in a currency of your choice!\n\nIf you don't have a PayPal account, please consider signing up: it's free.\nIf you have any questions or concerns regarding your donation, please feel free to contact Cubelogic at <support@cubelogic.org>.\nThanks for your support!";
+"DonationAlertMsg" = "Now you will be redirected to the PayPal website. Login into your PayPal account, use <e@cubelogic.org> as \"Recipient's Email\" (if not already filled in), and send an amount of your choice, in a currency of your choice.\n\nIf you don't have a PayPal account, signing up is free.\nIf you have any questions or concerns regarding your donation, feel free to contact Cubelogic at <support@cubelogic.org>.\nThanks for your support!";
 "GotoPayPal" = "Go to PayPal";
 "AnotherTime" = "Another time";
 
 /* Date Formats (US: Dec 25, 2004 at 11:44:44 PM) */
-"SamedayDateFormat"  = "at %I:%M:%S %p";
-"SameyearDateFormat" = "%b %e at %I:%M:%S %p";
-"FullDateFormat"     = "%b %e, %Y at %I:%M:%S %p";
+"SamedayDateFormat"  = "at %1I:%M:%S %p";
+"SameyearDateFormat" = "%b %e at %1I:%M:%S %p";
+"FullDateFormat"     = "%b %e, %Y at %1I:%M:%S %p";
 
 /* Dock menu stuff */
 "DockStoppedWouldHaveMsg" = "STOPPED - Would have ended ";
@@ -70,8 +70,6 @@ listed in the sound menu. */
 "AllEnded" = "All repetitions ended %@";
 /* eg: "Ended Dec 25, 2004 11:12:34" */
 "Ended" = "ENDED %@";
-/* eg: "Warning: timer alert in 5 hours, 1 minute, and 1 second" */
-"WarningMsg" = "Warning: %@\nin %d %@, %d %@, and %d %@.";
 /* eg: "Another reminder will appear Dec 25, 2004 11:12:34" */
 "AnotherReminder" = "Another reminder will appear %@.";
 /* eg: "Reminder: timer alert!" */
@@ -83,7 +81,7 @@ listed in the sound menu. */
 /* eg: "[...]. There are 5 more repetitions to go." */
 "XMoreRepetitions" = "%@ There are %d more repetitions to go.";
 /* eg: "[...]. Next repetition (#2) will end Dec 25, 2004, 12:23:23" */
-"NextRepStatusInfo" = "Next repetition (#%d) will end %@";
+"NextRepStatusInfo" = "Next (#%d) will end %@";
 
 /* Quitting custom message: this message is constructed in the code
 depending on how many unsaved and active timers we have. */

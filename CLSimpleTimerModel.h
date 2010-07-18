@@ -10,8 +10,6 @@
 
 extern const int CL_SIMPLETIMER_START_AFTER;
 extern const int CL_SIMPLETIMER_START_AT_DATE;
-extern const int CL_SIMPLETIMER_WARNME_SEC;
-extern const int CL_SIMPLETIMER_WARNME_MIN;
 
 @interface CLSimpleTimerModel : NSObject {
     NSString *name; /*"Used to store the filename of this timer."*/
@@ -34,12 +32,8 @@ extern const int CL_SIMPLETIMER_WARNME_MIN;
     int repeatFlag; // NSOnState or NSOffState
     int autoFlag; // NSOnState or NSOffState
     BOOL timerStarted;/*"Tells whether the timer is active or stopped."*/
-    int warnFlag; // NSOnState or NSOffState
-    float warnAmount;
-    int warnUOM;
     int cycleTimes;
     int cycleTimesLeft;
-    int cycleWarnTimesLeft;
     int cycleHrs;
     int cycleMins;
     int cycleSecs;
@@ -113,18 +107,10 @@ Currently this is the result of [NSSound soundUnfilteredFileTypes].
 - (void) setUrlList: (NSMutableArray *)arr;
 - (NSMutableArray *)msgList;
 - (void) setMsgList: (NSMutableArray *)arr;
-- (int) warnFlag;
-- (void) setWarnFlag:(int)flag;
-- (float) warnAmount;
-- (void) setWarnAmount:(float)amt;
-- (int) warnUOM;
-- (void) setWarnUOM:(int)x;
 - (int)cycleTimes;
 - (void)setCycleTimes:(int)_t_m_p_;
 - (int)cycleTimesLeft;
 - (void)setCycleTimesLeft:(int)_t_m_p_;
-- (int)cycleWarnTimesLeft;
-- (void)setCycleWarnTimesLeft:(int)_t_m_p_;
 - (int)afterHrs;
 - (void)setAfterHrs:(int)_t_m_p_;
 - (int)afterMins;

@@ -66,8 +66,6 @@ const NSString *CLDefaultSoundMenuTitle = @"Sosumi.aiff";
 const NSString *CLSimpleTimerDocType = @"SimpleTimer Document";
 // means the main timer must be invalidated
 const int CLSimpleTimerMainExpMask = 1;
-// DEPRECATED means the warn timer must be invalidated
-const int CLSimpleTimerWarnExpMask = 2;
 // means the timer was invalidated by the user
 const int CLSimpleTimerUserInvMask = 4;
 

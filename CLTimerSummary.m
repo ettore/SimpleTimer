@@ -24,13 +24,12 @@ closed.
 
 - (id)init
 {
-    return [self initWithName:@"" countdown:@"" repeat:@"" warn:@""
+    return [self initWithName:@"" countdown:@"" repeat:@"" 
                      autoFlag:@"" reminder:@""];
 }
 
 /*" Designated initializer. "*/
-- (id)initWithName:(NSString *)n countdown:(NSString *)con 
-            repeat:(NSString *)r warn:(NSString *)w
+- (id)initWithName:(NSString *)n countdown:(NSString *)con repeat:(NSString *)r 
           autoFlag:(NSString *)a reminder:(NSString *)rem
 {
     if ((self = [super init]))
@@ -38,7 +37,6 @@ closed.
         [self setName:n];
         [self setCountdown:con];
         [self setRepeat:r];
-        [self setWarn:w];
         [self setAutoFlag:a];
         [self setReminder:rem];
         doc = nil;
@@ -90,11 +88,6 @@ closed.
                                           value:@"No"
                                           table:@"Localizable"];
         
-        [self setWarn:(([tm warnFlag] == NSOnState) ? 
-                       [NSString stringWithFormat:@"%g %@", [tm warnAmount],
-                        ([tm warnUOM] == CL_SIMPLETIMER_WARNME_SEC ? sec:min)]
-                       : no)];
-        
         [self setName:[tm msg]];
         [self setCountdown: @""];
         [self setAutoFlag:(([tm autoFlag] == NSOnState) ? yes : no)];
@@ -116,7 +109,6 @@ closed.
     [name release]; // retain cnt = 6 ??
     [countdown release]; // retain cnt = 6 ??
     [repeat release]; // retain cnt = -1 ??
-    [warn release]; // retain cnt = -1 ??
     [autoFlag release]; // retain cnt = -1 ??
     [reminder release];
     [doc release];
@@ -163,18 +155,6 @@ Adds all the needed observers for the member variables of the timerMmodel.
             options: NSKeyValueObservingOptionNew
             context: NULL];
     [tm addObserver: self
-         forKeyPath: @"warnFlag"
-            options: NSKeyValueObservingOptionNew
-            context: NULL];
-    [tm addObserver: self
-         forKeyPath: @"warnAmount"
-            options: NSKeyValueObservingOptionNew
-            context: NULL];
-    [tm addObserver: self
-         forKeyPath: @"warnUOM"
-            options: NSKeyValueObservingOptionNew
-            context: NULL];
-    [tm addObserver: self
          forKeyPath: @"autoFlag"
             options: NSKeyValueObservingOptionNew
             context: NULL];
@@ -216,11 +196,7 @@ Adds all the needed observers for the member variables of the timerMmodel.
     [tm removeObserver:self forKeyPath:@"cycleTimesLeft"];
     [tm removeObserver:self forKeyPath:@"cycleHrs"];
     [tm removeObserver:self forKeyPath:@"cycleMins"];
-    [tm removeObserver:self forKeyPath:@"cycleMins"];
     [tm removeObserver:self forKeyPath:@"cycleSecs"];
-    [tm removeObserver:self forKeyPath:@"warnFlag"];
-    [tm removeObserver:self forKeyPath:@"warnAmount"];
-    [tm removeObserver:self forKeyPath:@"warnUOM"];
     [tm removeObserver:self forKeyPath:@"autoFlag"];
     [tm removeObserver:self forKeyPath:@"msgFlag"];
     [tm removeObserver:self forKeyPath:@"msg"];
@@ -241,7 +217,7 @@ is told which `object' has changed and what change has occurred. "*/
 {
     debug_enter("CLTimerSummary -observeValueForKeyPath:");
     
-    NSString *s, *time, *times, *yes, *no, *sec, *min;
+    NSString *s, *time, *times, *yes, *no;
     id newVal = [change objectForKey:NSKeyValueChangeNewKey];
     NSBundle *mainBundle = [NSBundle mainBundle];
         
@@ -300,24 +276,6 @@ is told which `object' has changed and what change has occurred. "*/
         [self setValue:([newVal intValue] == NSOnState ? yes : no)
             forKeyPath: keyPath];
     }
-    else if ([@"warnFlag" isEqual:keyPath] || [@"warnUOM" isEqual:keyPath] || 
-             [@"warnAmount" isEqual:keyPath])
-    {
-        no  = [mainBundle localizedStringForKey:@"No" 
-                                          value:@"No"
-                                          table:@"Localizable"];
-        sec = [mainBundle localizedStringForKey:@"SecAbbr" 
-                                          value:@"sec"
-                                          table:@"Localizable"];
-        min = [mainBundle localizedStringForKey:@"MinAbbr" 
-                                          value:@"min"
-                                          table:@"Localizable"];
-        [self setWarn:(([tm warnFlag] == NSOnState) ? 
-                           [NSString stringWithFormat:@"%g %@",
-                               [tm warnAmount], 
-                               ([tm warnUOM] == CL_SIMPLETIMER_WARNME_SEC ? sec: min)] : 
-                            no)];
-    }
     else if ([@"urlFlag" isEqual:keyPath] || [@"url" isEqual:keyPath]      ||
              [@"msgFlag" isEqual:keyPath] || [@"sndTimes" isEqual:keyPath] ||
              [@"sndFlag" isEqual:keyPath] || [@"sndName" isEqual:keyPath]  )
@@ -367,20 +325,6 @@ Sets the countdown of the receiver and posts a CLTimerSummaryChanged
 	_t_m_p_ = [_t_m_p_ copy];
 	[repeat release];
 	repeat = _t_m_p_;
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName: CLTimerSummaryChanged
-                      object: self];
-}
-- (NSString *)warn { return warn; }
-    /*" 
-    Sets the warning string of the receiver and posts a CLTimerSummaryChanged 
-    notification.
-    "*/
-- (void)setWarn:(NSString *)_t_m_p_
-{
-	_t_m_p_ = [_t_m_p_ copy];
-	[warn release];
-	warn = _t_m_p_;
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName: CLTimerSummaryChanged
                       object: self];
@@ -560,7 +504,7 @@ timer.
 {
     //[NSString stringWithFormat:
     //    @"in %@: %@; repeat: %@; warning: %@; auto: %@; actions: %@; dirty:", 
-    //    countdown, name, repeat, warn, autoFlag, reminder, isDirty];
+    //    countdown, name, repeat, autoFlag, reminder, isDirty];
     return [super description];
 }*/
 

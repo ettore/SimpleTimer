@@ -10,8 +10,6 @@
 
 const int CL_SIMPLETIMER_START_AT_DATE = 0;
 const int CL_SIMPLETIMER_START_AFTER = 1;
-const int CL_SIMPLETIMER_WARNME_SEC = 0;
-const int CL_SIMPLETIMER_WARNME_MIN = 1;
 
 @implementation CLSimpleTimerModel
 
@@ -25,17 +23,17 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
               urls:(NSMutableArray *)urls
             sndDir:(NSString *)dir
 {
-    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSBundle *bndl = [NSBundle mainBundle];
     NSString *s;
     
     self = [super init];
-    s = [mainBundle localizedStringForKey:@"UntitledDoc" 
-                                    value:@"Untitled"
-                                    table:@"Localizable"];
+    s = [bndl localizedStringForKey:@"UntitledDoc" 
+                              value:@"Untitled"
+                              table:@"Localizable"];
     [self setName: s];
     atDateNow = CL_SIMPLETIMER_START_AFTER;
     [self setFiringDateString: 
-        [[NSDate date]  descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S"
+        [[NSDate date] descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S"
                                             timeZone:nil
                                               locale:nil]];
     
@@ -48,9 +46,10 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
     afterHrs = 0;
     afterMins = 0;
     afterSecs = 0;
-    statusInfo = [[NSBundle mainBundle] localizedStringForKey:@"IdleTimerStatusInfo"
-														value:@"Idle"
-														table:@"Localizable"];
+    s = [bndl localizedStringForKey:@"IdleTimerStatusInfo"
+                              value:@"Idle"
+                              table:@"Localizable"];
+    [self setStatusInfo:s];
     [self setUrlList: urls];
     [self setMsgList: msgs];
     urlFlag = NSOffState;
@@ -60,7 +59,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
     [self setSndDir:dir];
     sndTimes = 1;
     msgFlag = NSOnState;
-    s = [mainBundle localizedStringForKey:@"DefaultReminder" 
+    s = [bndl localizedStringForKey:@"DefaultReminder" 
                                     value:@"Timer Alert!"
                                     table:@"Localizable"];
     [self setMsg: s];
@@ -68,24 +67,21 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
     repeatFlag = NSOffState;
     autoFlag = NSOnState;
     timerStarted = NO;
-    warnFlag = NSOffState;
-    warnAmount = 5.0;
-    warnUOM = CL_SIMPLETIMER_WARNME_MIN;
     cycleHrs = 0;
     cycleMins = 0;
     cycleSecs = 0;
     cycleTimes = 1;
-    cycleTimesLeft = cycleWarnTimesLeft = cycleTimes;
+    cycleTimesLeft = cycleTimes;
     return self;
 }
 
 
 - (id)init
 {
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *s = [mainBundle localizedStringForKey:@"CLDefaultSoundDirKey"
-                                              value:@"/System/Library/Sounds/"
-                                              table:@"Localizable"];
+    NSBundle *bndl = [NSBundle mainBundle];
+    NSString *s = [bndl localizedStringForKey:@"CLDefaultSoundDirKey"
+                                        value:@"/System/Library/Sounds/"
+                                        table:@"Localizable"];
     self = [self initWithMsgs:nil urls:nil sndDir:s];
     return self;
 }
@@ -117,10 +113,13 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
     else {
         NSArray *stringKeys = [[NSArray alloc] initWithObjects:@"atDateNow", 
             @"cycleHrs", @"cycleMins", @"cycleSecs", @"afterHrs", @"afterMins",
-            @"afterSecs", @"cycleTimesLeft", @"cycleWarnTimesLeft"];
+            @"afterSecs", @"cycleTimesLeft"];
         if ([stringKeys indexOfObject: key]) 
+        {
             [self setValue: [[NSNumber alloc] initWithInt:0] forKey: key];
-        else {
+        }
+        else 
+        {
             [stringKeys release];    
             stringKeys = [[NSArray alloc] initWithObjects:@"urlFlag", 
                 @"sndFlag", @"msgFlag", @"appLaunchFlag", 
@@ -166,12 +165,8 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 	[self setTimerStarted: [coder decodeBoolForKey:@"timerStarted"]];
     [self setMsgList: [coder decodeObjectForKey:@"msgList"]];
 	[self setUrlList: [coder decodeObjectForKey:@"urlList"]];
-    [self setWarnFlag: [coder decodeIntForKey:@"warnFlag"]];
-	[self setWarnAmount: [coder decodeFloatForKey:@"warnAmount"]];
-	[self setWarnUOM: [coder decodeIntForKey:@"warnUOM"]];
     [self setCycleTimes: [coder decodeIntForKey:@"cycleTimes"]];
     [self setCycleTimesLeft: [coder decodeIntForKey:@"cycleTimesLeft"]];
-	[self setCycleWarnTimesLeft:[coder decodeIntForKey:@"cycleWarnTimesLeft"]];
 	[self setAfterHrs: [coder decodeIntForKey:@"afterHrs"]];
 	[self setAfterMins: [coder decodeIntForKey:@"afterMins"]];
 	[self setAfterSecs: [coder decodeIntForKey:@"afterSecs"]];
@@ -204,12 +199,8 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 	[coder encodeBool:NO/*timerStarted*/ forKey:@"timerStarted"];
 	[coder encodeObject:msgList forKey:@"msgList"];
 	[coder encodeObject:urlList forKey:@"urlList"];
-	[coder encodeInt:warnFlag forKey:@"warnFlag"];
-	[coder encodeFloat:warnAmount forKey:@"warnAmount"];
-	[coder encodeInt:warnUOM forKey:@"warnUOM"];
     [coder encodeInt:cycleTimes forKey:@"cycleTimes"];
     [coder encodeInt:cycleTimes forKey:@"cycleTimesLeft"];
-    [coder encodeInt:cycleTimes forKey:@"cycleWarnTimesLeft"];
 	[coder encodeInt:afterHrs forKey:@"afterHrs"];
 	[coder encodeInt:afterMins forKey:@"afterMins"];
 	[coder encodeInt:afterSecs forKey:@"afterSecs"];
@@ -333,7 +324,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 }
 - (void) setCycleSecs:(int)newCycleSecs
 {
-	cycleSecs=newCycleSecs;
+	cycleSecs = newCycleSecs;
 }
 
 - (int) urlFlag
@@ -342,7 +333,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 }
 - (void) setUrlFlag:(int)newUrlFlag
 {
-	urlFlag=newUrlFlag;
+	urlFlag = newUrlFlag;
 }
 
 - (NSString *) url
@@ -354,7 +345,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
     newUrl = [NSURL adjustUrlString: newUrl];
     [newUrl retain];
 	[url release];
-	url= newUrl ;
+	url = newUrl ;
 }
 
 - (int) sndFlag
@@ -363,7 +354,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 }
 - (void) setSndFlag:(int)newSndFlag
 {
-	sndFlag=newSndFlag;
+	sndFlag = newSndFlag;
 }
 
 - (NSString *) sndName
@@ -374,7 +365,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 {
     [newSndName retain];
 	[sndName release];
-	sndName=newSndName;
+	sndName = newSndName;
 }
 
 - (NSString *) sndDir
@@ -389,7 +380,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
         newSndDir = [newSndDir stringByAppendingString:@"/"];
     [newSndDir retain];
 	[sndDir release];
-	sndDir=newSndDir;
+	sndDir = newSndDir;
 }
 
 - (int) sndTimes
@@ -398,7 +389,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 }
 - (void) setSndTimes:(int)newSndTimes
 {
-	sndTimes=newSndTimes;
+	sndTimes = newSndTimes;
 }
 
 - (int) msgFlag
@@ -407,7 +398,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 }
 - (void) setMsgFlag:(int)newMsgFlag
 {
-	msgFlag=newMsgFlag;
+	msgFlag = newMsgFlag;
 }
 
 - (NSString *) msg
@@ -418,7 +409,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 {
     [newMsg retain];
 	[msg release];
-	msg=newMsg;
+	msg = newMsg;
 }
 
 - (int) appLaunchFlag
@@ -436,7 +427,7 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 }
 - (void) setRepeatFlag:(int)newRepeatFlag
 {
-	repeatFlag=newRepeatFlag;
+	repeatFlag = newRepeatFlag;
 }
 
 - (int) autoFlag
@@ -473,13 +464,6 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
 	urlList = newUrlList;
 }
 
-- (int) warnFlag                  { return warnFlag;   }
-- (void) setWarnFlag:(int)flag    { warnFlag = flag;   }
-- (float) warnAmount              { return warnAmount; }
-- (void) setWarnAmount:(float)a   { warnAmount = a;    }
-- (int) warnUOM                   { return warnUOM;    }
-- (void) setWarnUOM:(int)x        { warnUOM = x;       }
-
 - (int)cycleTimes { return cycleTimes; }
 - (void)setCycleTimes:(int)_t_m_p_ 
 { 
@@ -488,13 +472,10 @@ const int CL_SIMPLETIMER_WARNME_MIN = 1;
     {
         // need to call the setter to trigger the key/value observer
         [self setCycleTimesLeft:cycleTimes];
-        [self setCycleWarnTimesLeft:cycleTimes];
     }
 }
 - (int)cycleTimesLeft { return cycleTimesLeft; }
 - (void)setCycleTimesLeft:(int)_t_m_p_ { cycleTimesLeft = _t_m_p_; }
-- (int)cycleWarnTimesLeft { return cycleWarnTimesLeft; }
-- (void)setCycleWarnTimesLeft:(int)_t_m_p_ { cycleWarnTimesLeft = _t_m_p_; }
 - (int)afterHrs { return afterHrs; }
 - (void)setAfterHrs:(int)_t_m_p_ { afterHrs = _t_m_p_; }
 - (int)afterMins { return afterMins; }
