@@ -70,7 +70,7 @@ const int CL_SIMPLETIMER_START_AFTER = 1;
     cycleHrs = 0;
     cycleMins = 0;
     cycleSecs = 0;
-    cycleTimes = 1;
+    cycleTimes = 2;
     cycleTimesLeft = cycleTimes;
     return self;
 }
