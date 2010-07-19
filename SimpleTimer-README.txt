@@ -21,10 +21,10 @@ Freely available at http://cubelogic.org/simpletimer. Current code is available 
 There's an older CVS repository at SourceForge.net but it is (and inevitably will be) rather outdated: http://cvs.sourceforge.net/viewcvs.py/clsimpletimer/src/
 
 Help needed:
-I am looking for testers for the following systems: Mac OS X 10.1, 10.2, 10.4, 10.5.  The current SimpleTimer version (1.3) has been tested only on Mac OS X 10.6 (intel) and 10.3 (ppc). I would like to extend testing to the mentioned OS X versions but I lack resources for such testing. If you are interested intel contributing to SimpleTimer, please email me and we'll work something out. Your name will be included in the credits for sure.
+I am looking for testers for the following systems: Mac OS X 10.1, 10.2, 10.4, 10.5.  The current SimpleTimer version (1.3) has been tested only on Mac OS X 10.6 (intel) and 10.3 (ppc). I would like to extend testing to the mentioned OS X versions but I lack resources for such testing. If you are interested in contributing to SimpleTimer, please email me and we'll work something out. Your name will be included in the credits.
 
 License:
-This software is free under the terms of the GNU GPL. You should find the license in the ``COPYING'' file included in the disk image, or through the Online Help. If you can't find it, please look at http://gnu.org/licenses/
+This software is free under the terms of the GNU GPL license. You should find the license in the ``COPYING'' file included in the disk image, or through the Online Help. If you can't find it, please look at http://gnu.org/licenses/
 
 Current Release Date:
 July, 2010

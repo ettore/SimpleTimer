@@ -31,6 +31,7 @@
 		E593FB4D10BD134E0015ACEB /* CLTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB4210BD134E0015ACEB /* CLTimer.m */; };
 		E593FB4E10BD134E0015ACEB /* CLURLCateg.m in Sources */ = {isa = PBXBuildFile; fileRef = E593FB4410BD134E0015ACEB /* CLURLCateg.m */; };
 		E593FB6310BD13A50015ACEB /* cl_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = E593FB6110BD13A50015ACEB /* cl_debug.c */; };
+		E5E9235311F3B43A00F7173E /* SimpleTimerDoc.icns in Resources */ = {isa = PBXBuildFile; fileRef = E5E9235211F3B43A00F7173E /* SimpleTimerDoc.icns */; };
 		E5FF4D170782C20F00390E9E /* CLCommonLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FF4D140782C20F00390E9E /* CLCommonLocalizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		E5A0AC9407701A0300DA3DC7 /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		E5BC3D060761D60D008926FE /* CLTimerSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTimerSummary.h; sourceTree = "<group>"; };
 		E5BC3D070761D60D008926FE /* CLTimerSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTimerSummary.m; sourceTree = "<group>"; };
+		E5E9235211F3B43A00F7173E /* SimpleTimerDoc.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SimpleTimerDoc.icns; sourceTree = "<group>"; };
 		E5FF4D150782C20F00390E9E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/CLCommonLocalizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E580E9C410BFEF4E0081D962 /* SimpleTimerIcon.icns */,
+				E5E9235211F3B43A00F7173E /* SimpleTimerDoc.icns */,
 				E5FF4D140782C20F00390E9E /* CLCommonLocalizable.strings */,
 				E586C539074FFCFB00C10F62 /* Localizable.strings */,
 				E50A78BC077652690058392F /* HelpOnline */,
@@ -293,6 +296,7 @@
 				E511DED6077FE0E100BA614C /* MyDocument.nib in Resources */,
 				E511DEE3077FE0E100BA614C /* Credits.html in Resources */,
 				E580E9C510BFEF4E0081D962 /* SimpleTimerIcon.icns in Resources */,
+				E5E9235311F3B43A00F7173E /* SimpleTimerDoc.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

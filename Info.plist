@@ -12,7 +12,7 @@
 				<string>timer</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>timer01-5r-1.icns</string>
+			<string>SimpleTimerDoc.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>SimpleTimer Document</string>
 			<key>CFBundleTypeOSTypes</key>
