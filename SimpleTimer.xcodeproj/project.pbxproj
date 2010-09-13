@@ -61,25 +61,25 @@
 		E593FAB410BD0E390015ACEB /* COPYING.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.txt; sourceTree = "<group>"; };
 		E593FAB510BD0E390015ACEB /* SimpleTimer-change-log.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SimpleTimer-change-log.txt"; sourceTree = "<group>"; };
 		E593FAB610BD0E390015ACEB /* SimpleTimer-README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SimpleTimer-README.txt"; sourceTree = "<group>"; };
-		E593FAFF10BD12CA0015ACEB /* CLCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLCommonConst.h; path = ../../clutils/CLCocoa/CLCommonConst.h; sourceTree = SOURCE_ROOT; };
-		E593FB0010BD12CA0015ACEB /* CLCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLCommonConst.m; path = ../../clutils/CLCocoa/CLCommonConst.m; sourceTree = SOURCE_ROOT; };
-		E593FB0110BD12CA0015ACEB /* CLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLController.h; path = ../../clutils/CLCocoa/CLController.h; sourceTree = SOURCE_ROOT; };
-		E593FB0210BD12CA0015ACEB /* CLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTableViewController.h; path = ../../clutils/CLCocoa/CLTableViewController.h; sourceTree = SOURCE_ROOT; };
-		E593FB0310BD12CA0015ACEB /* CLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTableViewController.m; path = ../../clutils/CLCocoa/CLTableViewController.m; sourceTree = SOURCE_ROOT; };
-		E593FB0410BD12CA0015ACEB /* CLTableViewRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTableViewRecord.h; path = ../../clutils/CLCocoa/CLTableViewRecord.h; sourceTree = SOURCE_ROOT; };
-		E593FB0510BD12CA0015ACEB /* CLTableViewRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTableViewRecord.m; path = ../../clutils/CLCocoa/CLTableViewRecord.m; sourceTree = SOURCE_ROOT; };
-		E593FB0610BD12CA0015ACEB /* CLTableViewUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTableViewUserDefaultsController.h; path = ../../clutils/CLCocoa/CLTableViewUserDefaultsController.h; sourceTree = SOURCE_ROOT; };
-		E593FB0710BD12CA0015ACEB /* CLTableViewUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTableViewUserDefaultsController.m; path = ../../clutils/CLCocoa/CLTableViewUserDefaultsController.m; sourceTree = SOURCE_ROOT; };
-		E593FB3910BD134E0015ACEB /* cl_gen_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cl_gen_utils.h; path = ../../clutils/CLFoundation/cl_gen_utils.h; sourceTree = SOURCE_ROOT; };
-		E593FB3A10BD134E0015ACEB /* cl_gen_utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cl_gen_utils.m; path = ../../clutils/CLFoundation/cl_gen_utils.m; sourceTree = SOURCE_ROOT; };
-		E593FB3D10BD134E0015ACEB /* CLFileManagerCateg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLFileManagerCateg.h; path = ../../clutils/CLFoundation/CLFileManagerCateg.h; sourceTree = SOURCE_ROOT; };
-		E593FB3E10BD134E0015ACEB /* CLFileManagerCateg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLFileManagerCateg.m; path = ../../clutils/CLFoundation/CLFileManagerCateg.m; sourceTree = SOURCE_ROOT; };
-		E593FB3F10BD134E0015ACEB /* CLFoundationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLFoundationUtils.h; path = ../../clutils/CLFoundation/CLFoundationUtils.h; sourceTree = SOURCE_ROOT; };
-		E593FB4010BD134E0015ACEB /* CLFoundationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLFoundationUtils.m; path = ../../clutils/CLFoundation/CLFoundationUtils.m; sourceTree = SOURCE_ROOT; };
-		E593FB4110BD134E0015ACEB /* CLTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTimer.h; path = ../../clutils/CLFoundation/CLTimer.h; sourceTree = SOURCE_ROOT; };
-		E593FB4210BD134E0015ACEB /* CLTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTimer.m; path = ../../clutils/CLFoundation/CLTimer.m; sourceTree = SOURCE_ROOT; };
-		E593FB4310BD134E0015ACEB /* CLURLCateg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLURLCateg.h; path = ../../clutils/CLFoundation/CLURLCateg.h; sourceTree = SOURCE_ROOT; };
-		E593FB4410BD134E0015ACEB /* CLURLCateg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLURLCateg.m; path = ../../clutils/CLFoundation/CLURLCateg.m; sourceTree = SOURCE_ROOT; };
+		E593FAFF10BD12CA0015ACEB /* CLCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLCommonConst.h; sourceTree = "<group>"; };
+		E593FB0010BD12CA0015ACEB /* CLCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLCommonConst.m; sourceTree = "<group>"; };
+		E593FB0110BD12CA0015ACEB /* CLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLController.h; sourceTree = "<group>"; };
+		E593FB0210BD12CA0015ACEB /* CLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTableViewController.h; sourceTree = "<group>"; };
+		E593FB0310BD12CA0015ACEB /* CLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTableViewController.m; sourceTree = "<group>"; };
+		E593FB0410BD12CA0015ACEB /* CLTableViewRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTableViewRecord.h; sourceTree = "<group>"; };
+		E593FB0510BD12CA0015ACEB /* CLTableViewRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTableViewRecord.m; sourceTree = "<group>"; };
+		E593FB0610BD12CA0015ACEB /* CLTableViewUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTableViewUserDefaultsController.h; sourceTree = "<group>"; };
+		E593FB0710BD12CA0015ACEB /* CLTableViewUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTableViewUserDefaultsController.m; sourceTree = "<group>"; };
+		E593FB3910BD134E0015ACEB /* cl_gen_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cl_gen_utils.h; sourceTree = "<group>"; };
+		E593FB3A10BD134E0015ACEB /* cl_gen_utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cl_gen_utils.m; sourceTree = "<group>"; };
+		E593FB3D10BD134E0015ACEB /* CLFileManagerCateg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFileManagerCateg.h; sourceTree = "<group>"; };
+		E593FB3E10BD134E0015ACEB /* CLFileManagerCateg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFileManagerCateg.m; sourceTree = "<group>"; };
+		E593FB3F10BD134E0015ACEB /* CLFoundationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFoundationUtils.h; sourceTree = "<group>"; };
+		E593FB4010BD134E0015ACEB /* CLFoundationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFoundationUtils.m; sourceTree = "<group>"; };
+		E593FB4110BD134E0015ACEB /* CLTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTimer.h; sourceTree = "<group>"; };
+		E593FB4210BD134E0015ACEB /* CLTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTimer.m; sourceTree = "<group>"; };
+		E593FB4310BD134E0015ACEB /* CLURLCateg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLURLCateg.h; sourceTree = "<group>"; };
+		E593FB4410BD134E0015ACEB /* CLURLCateg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLURLCateg.m; sourceTree = "<group>"; };
 		E593FB6110BD13A50015ACEB /* cl_debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cl_debug.c; sourceTree = "<group>"; };
 		E593FB6210BD13A50015ACEB /* cl_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cl_debug.h; sourceTree = "<group>"; };
 		E5995C0B0755FD51006631F2 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MyDocument.nib; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				E540817607643E6600E06702 /* CLTimerSummaryTvController.h */,
 				E540817707643E6600E06702 /* CLTimerSummaryTvController.m */,
 				E586C504074FFBD200C10F62 /* CLSimpleTimerGlobals.h */,
-				E593FAF510BD12630015ACEB /* clutils */,
+				E593FAF510BD12630015ACEB /* CLutils */,
 				E50FD5B60753108000C3EE23 /* GUI */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				E593FAAE10BD0E210015ACEB /* External Docs */,
@@ -189,14 +189,15 @@
 			name = "External Docs";
 			sourceTree = "<group>";
 		};
-		E593FAF510BD12630015ACEB /* clutils */ = {
+		E593FAF510BD12630015ACEB /* CLutils */ = {
 			isa = PBXGroup;
 			children = (
 				E593FB6010BD13A50015ACEB /* cl_debug */,
 				E593FB2810BD13430015ACEB /* CLFoundation */,
 				E593FB0C10BD12D50015ACEB /* CLCocoa */,
 			);
-			name = clutils;
+			name = CLutils;
+			path = ../CLutils;
 			sourceTree = "<group>";
 		};
 		E593FB0C10BD12D50015ACEB /* CLCocoa */ = {
@@ -212,7 +213,7 @@
 				E593FB0610BD12CA0015ACEB /* CLTableViewUserDefaultsController.h */,
 				E593FB0710BD12CA0015ACEB /* CLTableViewUserDefaultsController.m */,
 			);
-			name = CLCocoa;
+			path = CLCocoa;
 			sourceTree = "<group>";
 		};
 		E593FB2810BD13430015ACEB /* CLFoundation */ = {
@@ -229,7 +230,7 @@
 				E593FB4310BD134E0015ACEB /* CLURLCateg.h */,
 				E593FB4410BD134E0015ACEB /* CLURLCateg.m */,
 			);
-			name = CLFoundation;
+			path = CLFoundation;
 			sourceTree = "<group>";
 		};
 		E593FB6010BD13A50015ACEB /* cl_debug */ = {
@@ -239,8 +240,8 @@
 				E593FB6210BD13A50015ACEB /* cl_debug.h */,
 			);
 			name = cl_debug;
-			path = ../../clutils/cl_debug;
-			sourceTree = SOURCE_ROOT;
+			path = ../CLutils/cl_debug;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -327,7 +328,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DMG_NAME=${PRODUCT_NAME}-v${CURRENT_PROJECT_VERSION}\nMY_DIR=${BUILT_PRODUCTS_DIR}/$DMG_NAME\n\n# copy app into MY_DIR\necho Copying build into $MY_DIR\ncp -R \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\" \"$MY_DIR\"\n\n# copy release text files\necho Adding release docs to $MY_DIR\ncp \"${SRCROOT}/SimpleTimer-change-log.txt\" \"$MY_DIR\"\ncp \"${SRCROOT}/SimpleTimer-README.txt\" \"$MY_DIR\"\ncp \"${SRCROOT}/COPYING.txt\" \"$MY_DIR\"\n\n# create dmg\nif [ \"${BUILD_STYLE}\" = \"Release\" ]; then\n\tcd \"$BUILT_PRODUCTS_DIR\"\n\trm -rf \"${DMG_NAME}.dmg\"\n\techo Creating DMG...\n\techo hdiutil create -fs HFS+ -volname \"$DMG_NAME\" -srcfolder \"$DMG_NAME\" \"${DMG_NAME}.dmg\"\n\thdiutil create -fs HFS+ -volname \"$DMG_NAME\" -srcfolder \"$DMG_NAME\" \"${DMG_NAME}.dmg\"\nfi\n";
+			shellScript = "DMG_NAME=${PRODUCT_NAME}-v${CURRENT_PROJECT_VERSION}\nMY_DIR=${BUILT_PRODUCTS_DIR}/$DMG_NAME\n\n# copy app into MY_DIR\necho Copying build into $MY_DIR\ncp -R \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\" \"$MY_DIR\"\n\n# copy release text files\necho Adding release docs to $MY_DIR\ncp \"${SRCROOT}/SimpleTimer-change-log.txt\" \"$MY_DIR\"\ncp \"${SRCROOT}/README\" \"$MY_DIR\"\ncp \"${SRCROOT}/COPYING.txt\" \"$MY_DIR\"\n\n# create dmg\nif [ \"${BUILD_STYLE}\" = \"Release\" ]; then\n\tcd \"$BUILT_PRODUCTS_DIR\"\n\trm -rf \"${DMG_NAME}.dmg\"\n\techo Creating DMG...\n\techo hdiutil create -fs HFS+ -volname \"$DMG_NAME\" -srcfolder \"$DMG_NAME\" \"${DMG_NAME}.dmg\"\n\thdiutil create -fs HFS+ -volname \"$DMG_NAME\" -srcfolder \"$DMG_NAME\" \"${DMG_NAME}.dmg\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
