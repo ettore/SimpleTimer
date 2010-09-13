@@ -17,10 +17,6 @@ Note about the "At Date" field format:
 The "At Date" field accepts date/time in the following format only: 
 YYYY-MM-DD hh:mm:ss (year-month-day hour:minutes:seconds) with 24-hour format.
 
-Source-code:
-Freely available at http://cubelogic.org/simpletimer. Current code is available at the following SVN repository: http://cubelogic.org/stimer/
-There's an older CVS repository at SourceForge.net but it is (and inevitably will be) rather outdated: http://cvs.sourceforge.net/viewcvs.py/clsimpletimer/src/
-
 Help needed:
 I am looking for testers for the following systems: Mac OS X 10.1, 10.2, 10.4, 10.5.  The current SimpleTimer version (1.3) has been tested only on Mac OS X 10.6 (intel) and 10.3 (ppc). If you are interested in contributing to SimpleTimer, please email me and we'll work something out. Your name will be included in the credits.
 
