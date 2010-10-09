@@ -84,8 +84,6 @@ the application defaults. "*/
                                                  value:@"Stop looking at porn!"
                                                  table:@"Localizable"];
     
-    // NB!! ogni rec ha retainCount=2: uno causa l'alloc, l'altro causa 
-    // `arrayWithObjects:'
     NSMutableArray *msgPresets = [NSMutableArray arrayWithObjects:
         [[CLSingleStringRecord alloc] initWithString:msg1],
         [[CLSingleStringRecord alloc] initWithString:msg2],
@@ -98,7 +96,7 @@ the application defaults. "*/
         nil];
     
     msg1 = [mainBundle localizedStringForKey:@"url1" 
-                                       value:@"http://localhost"
+                                       value:@"http://goodreads.com"
                                        table:@"Localizable"];
     msg2 = [mainBundle localizedStringForKey:@"url2" 
                                        value:@"http://gnu.org"
@@ -493,8 +491,10 @@ row. This method is called only by the UI (Summary window, "New" button).
     }
 }
 
-/*"Removes timer `tid' from the list of open timers. Before removing, 
-invalidates the timer is active."*/
+/*"
+ Removes timer `tid' from the list of open timers. Before removing, 
+invalidates the timer is active.
+ "*/
 - (void)removeTimerWithId:(int)tid
 {
     debug_enter("AppController -removeTimerWithId:");
@@ -911,9 +911,6 @@ once the timer has completed.
 - (void)doGestures:(NSTimer *)aTimer
 {   
     debug_enter("Appcontroller -doGestures:");
-    
-    // qui retainCount per il timer è già 3 
-    debug0cocoa(@"mainTimer: rtnCnt=%d", [aTimer retainCount]);
     
     NSDate *mfdate, *nextFdate;
     NSWorkspace *sharedWorkspace;

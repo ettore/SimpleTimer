@@ -1,4 +1,4 @@
-SimpleTimer v1.3
+SimpleTimer 1.3.1
 
 Description:
 With SimpleTimer you can create timers and reminders for your daily chores or duties. The user interface allows you to quickly set up a reminder (e.g. to remember to do laundry 45 minutes from now), but it's easy to enable more advanced scheduling operations. (However, SimpleTimer does not aim to replace advanced scheduling utilities like cron.) When the timer expires, you can:
@@ -7,7 +7,7 @@ With SimpleTimer you can create timers and reminders for your daily chores or du
 - play a sound (MP3, AIFF, etc.)
 
 Requirements:
-SimpleTimer v1.3 runs on Max OS X 10.1 and higher. 
+SimpleTimer runs on Max OS X 10.1 and higher. 
 This is a Universal Binary, so it runs on PPC and Intel machines.
 
 Installation:
@@ -18,16 +18,16 @@ The "At Date" field accepts date/time in the following format only:
 YYYY-MM-DD hh:mm:ss (year-month-day hour:minutes:seconds) with 24-hour format.
 
 Help needed:
-I am looking for testers for the following systems: Mac OS X 10.1, 10.2, 10.4, 10.5.  The current SimpleTimer version (1.3) has been tested only on Mac OS X 10.6 (intel) and 10.3 (ppc). If you are interested in contributing to SimpleTimer, please email me and we'll work something out. Your name will be included in the credits.
+I am looking for testers for the following systems: Mac OS X 10.1, 10.2, 10.4, 10.5.  The current SimpleTimer version has been tested only on Mac OS X 10.6 (intel) and 10.3 (ppc). If you are interested in contributing to SimpleTimer, please email me and we'll work something out. Your name will be included in the credits.
 
 License:
 This software is free under the terms of the GNU GPL license. You should find the license in the ``COPYING'' file included in the disk image, or through the Online Help. If you can't find it, please look at http://gnu.org/licenses/
 
 Current Release Date:
-July, 2010
+October, 2010
 
 Thank you:
-Judy Hui, Lorenzo Pazzi, Ken Gillett, Stephen Cristol, Claude Rondeau
+Judy Hui, Lorenzo Pazzi, Ken Gillett, Stephen Cristol
 
 Donations:
 You are invited to contribute a donation for SimpleTimer if you find it useful.

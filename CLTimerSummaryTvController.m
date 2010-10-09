@@ -35,8 +35,8 @@ This class handles a tableView whose records are of class CLTimerSummary.
 - (void) createAndAddNewEntry
 {
     CLTimerSummary *s = [[CLTimerSummary alloc] init];
-    [[super model] addObject:s]; //ora l'oggetto puntato da s ha retain count=2
-    [s release]; //... quindi lo rilascio
+    [[super model] addObject:s];
+    [s release];
 }
 
 - (void)updateBtnStatus

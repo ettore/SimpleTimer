@@ -1,8 +1,14 @@
 SimpleTimer history of changes
 ------------------------------
 
+Version 1.3.1, October 2010
+- Fixed "About SimpleTimer" text, which was showing data from v1.2.
+- Reduced app size by 2% (now it's 429 Kb).
+- Minor bug fixes.
+- Compiled with gcc 4.2, latest CLutils code, dead-code stripping enabled.
+
 Version 1.3, July 2010
-- Streamlined code and reduced app size by almost 50%.
+- Streamlined code and reduced app size by almost 50% (now it's 437 Kb).
 - Now compatible with Mac OS X 10.1 and higher. 
 - Tested on 10.6.4 and 10.3.9.
 - Minor graphical changes in the UI.
@@ -10,6 +16,7 @@ Version 1.3, July 2010
 - Fixed crash when creating new timer after having created a previous one.
 - Fixed autostart not working when double-clicking on timer when the app was not yet launched.
 - Other minor bug fixes.
+- Compiled with gcc 4.0, dead-code stripping disabled.
 
 Version 1.2, January 2006
 - Universal binary build.

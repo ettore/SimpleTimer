@@ -106,10 +106,10 @@ closed.
 {
     debug_enter("CLTimerSummary -dealloc");
     [self stopObservingTimerModel:[doc timerModel]];
-    [name release]; // retain cnt = 6 ??
-    [countdown release]; // retain cnt = 6 ??
-    [repeat release]; // retain cnt = -1 ??
-    [autoFlag release]; // retain cnt = -1 ??
+    [name release];
+    [countdown release];
+    [repeat release];
+    [autoFlag release];
     [reminder release];
     [doc release];
     [timer invalidate]; // harmless if timer is already invalid
@@ -292,6 +292,7 @@ is told which `object' has changed and what change has occurred. "*/
 // #####################################################################
 
 - (NSString *)name { return name; }
+
 /*" 
 Sets the name of the receiver and posts a CLTimerSummaryChanged notification.
 "*/
@@ -304,7 +305,9 @@ Sets the name of the receiver and posts a CLTimerSummaryChanged notification.
     [nc postNotificationName: CLTimerSummaryChanged
                       object: self];
 }
+
 - (NSString *)countdown { return countdown; }
+
 /*" 
 Sets the countdown of the receiver and posts a CLTimerSummaryChanged 
     notification.
@@ -315,11 +318,13 @@ Sets the countdown of the receiver and posts a CLTimerSummaryChanged
 	[countdown release];
 	countdown = _t_m_p_;
 }
+
 - (NSString *)repeat { return repeat; }
-    /*" 
-    Sets the repeat attribute of the receiver and posts a CLTimerSummaryChanged 
-    notification.
-    "*/
+
+/*" 
+Sets the repeat attribute of the receiver and posts a CLTimerSummaryChanged 
+notification.
+"*/
 - (void)setRepeat:(NSString *)_t_m_p_
 {
 	_t_m_p_ = [_t_m_p_ copy];
@@ -329,11 +334,13 @@ Sets the countdown of the receiver and posts a CLTimerSummaryChanged
     [nc postNotificationName: CLTimerSummaryChanged
                       object: self];
 }
+
 - (NSString *)autoFlag { return autoFlag; }
-    /*" 
-    Sets the autoStart-flag of the receiver and posts a CLTimerSummaryChanged 
-    notification.
-    "*/
+
+/*" 
+Sets the autoStart-flag of the receiver and posts a CLTimerSummaryChanged 
+notification.
+"*/
 - (void)setAutoFlag:(NSString *)_t_m_p_
 {
 	_t_m_p_ = [_t_m_p_ copy];
@@ -343,11 +350,13 @@ Sets the countdown of the receiver and posts a CLTimerSummaryChanged
     [nc postNotificationName: CLTimerSummaryChanged
                       object: self];
 }
+
 - (NSString *)reminder { return reminder; }
-    /*" 
-    Sets the reminder description  of the receiver and posts a 
-    CLTimerSummaryChanged notification.
-    "*/
+
+/*" 
+Sets the reminder description  of the receiver and posts a 
+CLTimerSummaryChanged notification.
+"*/
 - (void)setReminder:(NSString *)_t_m_p_
 {
 	_t_m_p_ = [_t_m_p_ copy];
@@ -357,36 +366,47 @@ Sets the countdown of the receiver and posts a CLTimerSummaryChanged
     [nc postNotificationName: CLTimerSummaryChanged
                       object: self];
 }
+
 - (id)doc { return doc; }
+
 - (void)setDoc:(id)_t_m_p_
 {
 	[_t_m_p_ retain];
 	[doc release];
 	doc = _t_m_p_;
 }
+
 - (NSTimer *)timer { return timer; }
+
 - (void)setTimer:(NSTimer *)_t_m_p_
 {
 	[_t_m_p_ retain];
 	[timer release];
 	timer = _t_m_p_;
 }
+
 - (NSTimer *)updatingTimer { return updatingTimer; }
+
 - (void)setUpdatingTimer:(NSTimer *)_t_m_p_
 {
 	[_t_m_p_ retain];
 	[updatingTimer release];
 	updatingTimer = _t_m_p_;
 }
+
 - (int)remainingTimes { return remainingTimes; }
+
 - (void)setRemainingTimes:(int)_t_m_p_ { remainingTimes = _t_m_p_; }
+
 - (NSString *)precomputed { return precomputed; }
+
 - (void)setPrecomputed:(NSString *)_t_m_p_
 {
 	[_t_m_p_ retain];
 	[precomputed release];
 	precomputed = _t_m_p_;
 }
+
 /*" 
 If the class instance references a MyDocument instance  -as one can obtain
 from [slef doc], this method also updates the change count of the doc. 
@@ -401,7 +421,9 @@ from [slef doc], this method also updates the change count of the doc.
             [doc updateChangeCount:NSChangeDone];
     }
 }
+
 - (BOOL)isDirty { return isDirty; }
+
 - (BOOL)isDocumentEdited
 {
     if ([doc respondsToSelector:@selector(isDocumentEdited)])

@@ -113,7 +113,7 @@ const int CL_SIMPLETIMER_START_AFTER = 1;
     else {
         NSArray *stringKeys = [[NSArray alloc] initWithObjects:@"atDateNow", 
             @"cycleHrs", @"cycleMins", @"cycleSecs", @"afterHrs", @"afterMins",
-            @"afterSecs", @"cycleTimesLeft"];
+            @"afterSecs", @"cycleTimesLeft", nil];
         if ([stringKeys indexOfObject: key]) 
         {
             [self setValue: [[NSNumber alloc] initWithInt:0] forKey: key];
@@ -123,7 +123,7 @@ const int CL_SIMPLETIMER_START_AFTER = 1;
             [stringKeys release];    
             stringKeys = [[NSArray alloc] initWithObjects:@"urlFlag", 
                 @"sndFlag", @"msgFlag", @"appLaunchFlag", 
-                @"repeatFlag", @"autoFlag"];
+                @"repeatFlag", @"autoFlag", nil];
             if ([stringKeys indexOfObject: key]) 
                 [self setValue: [[NSNumber alloc] initWithInt:NSOffState] 
                         forKey: key];
